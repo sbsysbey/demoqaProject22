@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="19.771">
+    <testcase classname="US03_RadioButton" name="TC01" time="6.924">
+        <system-out><![CDATA[Given demoqa anasayfaya gidin...............................................passed
+Then elements butonuna basiniz..............................................passed
+And radiobox butonuna tiklayiniz............................................passed
+And yes Buttonunu tiklayiniz................................................passed
+Then Yes secildigini dogrulayiniz...........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="US03_RadioButton" name="TC02" time="1.302">
+        <system-out><![CDATA[Given demoqa anasayfaya gidin...............................................passed
+Then elements butonuna basiniz..............................................passed
+And radiobox butonuna tiklayiniz............................................passed
+And Impresive butonuna tiklayiniz...........................................passed
+Then İmpersive yazisini dogrulayiniz........................................passed
+Then Yes butonunun secili olmadigini dogrulayin.............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="US03_RadioButton" name="TC03" time="11.085">
+        <failure message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//label[@class='custom-control-input disabled']&quot;}&#10;  (Session info: chrome=94.0.4606.81)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'MRN', ip: '192.168.1.105', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\MRN\AppData\Local\...}, goog:chromeOptions: {debuggerAddress: localhost:51118}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 2e4afe4f727d1767be57a0508fdf68f8&#10;*** Element info: {Using=xpath, value=//label[@class='custom-control-input disabled']}" type="org.openqa.selenium.NoSuchElementException"><![CDATA[Given demoqa anasayfaya gidin...............................................passed
+Then elements butonuna basiniz..............................................passed
+And radiobox butonuna tiklayiniz............................................passed
+Then No butonunun secildigini  dogrulayiniz.................................failed
+
+StackTrace:
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//label[@class='custom-control-input disabled']"}
+  (Session info: chrome=94.0.4606.81)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'MRN', ip: '192.168.1.105', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.81, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\Users\MRN\AppData\Local\...}, goog:chromeOptions: {debuggerAddress: localhost:51118}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 2e4afe4f727d1767be57a0508fdf68f8
+*** Element info: {Using=xpath, value=//label[@class='custom-control-input disabled']}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy17.isEnabled(Unknown Source)
+	at stepDefinitions.RadioButtonStepDefinitions.no_butonunun_secildigini_dogrulayiniz(RadioButtonStepDefinitions.java:59)
+	at ✽.No butonunun secildigini  dogrulayiniz(file:///C:/Users/MRN/IdeaProjects/demoqaProject2/src/test/resources/features/US03_RadioButton.feature:21)
+]]></failure>
+    </testcase>
+</testsuite>
