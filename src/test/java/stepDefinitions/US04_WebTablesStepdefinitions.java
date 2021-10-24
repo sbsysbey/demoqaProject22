@@ -24,12 +24,8 @@ public class US04_WebTablesStepdefinitions {
     public void web_tables_butonuna_basiniz() {
 
         //actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-        //ReusableMethods.waitFor(1);
-
         uS04_WebTablesPage.webTables.click();
         ReusableMethods.waitFor(1);
-
     }
 
 
@@ -38,15 +34,10 @@ public class US04_WebTablesStepdefinitions {
         uS04_WebTablesPage.add.click();
     }
 
-
-
     @And("submit butonuna tiklayiniz")
     public void submitButonunaTiklayiniz() {
         uS04_WebTablesPage.submit.click();
     }
-
-
-
 
     @And("cikan formda firstName yaziniz  {string}")
     public void cikanFormdaFirstNameYaziniz(String arg0) {
@@ -99,15 +90,7 @@ public class US04_WebTablesStepdefinitions {
     @And("duzenle butonuna basiniz")
     public void duzenleButonunaBasiniz() {
         uS04_WebTablesPage.edit.click();
-
-
     }
-
-    @And("Firstname yedekName {string} ile degistiriniz")
-    public void firstnameYedekNameIleDegistiriniz(String arg0) throws Throwable {
-
-         }
-
     @And("sil butonuna basiniz")
     public void silButonunaBasiniz() {
 
@@ -133,19 +116,13 @@ public class US04_WebTablesStepdefinitions {
     @And("liste olustur")
     public void listeOlustur() {
 
-          //  list.add(Driver.getDriver().findElement(By.xpath("//div[@class='rt-tr -odd'])")).getText());
+        List <WebElement> elems=Driver.getDriver().findElements(By.xpath("//div[@class='rt-tr -odd']"));
+       List list=new ArrayList();
 
-List <WebElement> elems=Driver.getDriver().findElements(By.xpath("//div[@class='rt-tr -odd']"));
-        List list=new ArrayList();
-        for (WebElement el : elems) {
-            if (!el.getText().isEmpty()) {
-                list.add(el.getText());
-            }
-            System.out.println(list);
-        }
+       list=ReusableMethods.getElementsText(elems);
+        System.out.println(list);
 
 
-        
         
         
     }

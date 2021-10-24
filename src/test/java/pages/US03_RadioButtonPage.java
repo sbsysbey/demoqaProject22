@@ -26,8 +26,11 @@ public class US03_RadioButtonPage {
     public WebElement impressive;
 
 
-    @FindBy(xpath = "//label[@class='custom-control-input disabled']")
+    @FindBy(xpath = "//input[@class='custom-control-input disabled']")
     public WebElement noButton;
+
+    @FindBy(id="noRadio")
+    public WebElement noluButton;
 
 
 

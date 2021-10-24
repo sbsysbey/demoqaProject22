@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.asserts.SoftAssert;
 import pages.US03_RadioButtonPage;
 import utilities.Driver;
 
@@ -49,16 +50,20 @@ radioButtonPage.impressive.click();
     public void yes_butonunun_secili_olmadigini_dogrulayin() {
 Assert.assertFalse(radioButtonPage.yes.isSelected());
     }
-    @Then("No butonunu seciniz")
+    @Then("no butonunu seciniz")
     public void no_butonunu_seciniz() {
-radioButtonPage.noButton.click();
-    }
-    @Then("No butonunun secildigini  dogrulayiniz")
+        if (radioButtonPage.noButton.isEnabled()) {
+            System.out.println("işlem tamam");
+
+        }else {
+            System.out.println("burada bug var No butonu kullanılamıyor");
+
+
+    }}
+    @Then("no butonunun secildigini  dogrulayiniz")
     public void no_butonunun_secildigini_dogrulayiniz() {
-       if (radioButtonPage.noButton.isEnabled()){
-           System.out.println("işlem tamam");
-       }else {
-           System.out.println("burada bug car No butonu kullanılamıyor");
-       }
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertTrue(radioButtonPage.noButton.isEnabled(),"çalışömıyor");
+
     }
 }

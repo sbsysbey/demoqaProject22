@@ -6,9 +6,9 @@ Feature:TextBox
     Given demoqa anasayfaya gidin
     Then elements butonuna basiniz
     And textbox butonuna tiklayiniz
-  Scenario:tc01
 
-    And Fullname giriniz
+  Scenario:TC01_REGISTER
+     And Fullname giriniz
     And email giriniz
     And adres1 giriniz
     And adres2 giriniz
@@ -48,3 +48,8 @@ Feature:TextBox
          | nermin | mes@gmail  | adres3  | kaplan     |
          | melik  | gmail.com  | 12345   | kedi       |
          | said   | @gmail.com | adres5  | 2345       |
+
+
+    Scenario:TC05_LISTE
+      Given slide duzenle
+      And Map olusturmayi duzenle

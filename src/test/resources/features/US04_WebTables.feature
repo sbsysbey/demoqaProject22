@@ -3,7 +3,8 @@ Background:
   Given demoqa anasayfaya gidin
   Then elements butonuna basiniz
     And webTables butonuna basiniz
-  Scenario Outline: TC_01
+
+  Scenario Outline: TC_01_ADD
     And Add butonuna basiniz
     And cikan formda firstName yaziniz  "<firstname>"
     And cikan formda lastName yaziniz  "<lastName>"
@@ -21,24 +22,27 @@ Background:
       | zehra     | bektas   | zhra@gmail.com    | 25  | 50000  | TESTER     |
       | aslan     | kaplan   | aslan@gmail.com   | 12  | 70000  | TESTER     |
 
-    Scenario: TC02
+    Scenario: TC02_EDIT
+      And liste olustur
       And duzenle butonuna basiniz
       And cikan formda firstName yaziniz  "aslan"
       And cikan formda lastName yaziniz  "kaplan"
       And cikan formda email giriniz  "sa@gmail.com"
       And cikan formda salary yaziniz "5000"
       And cikan formda department yaziniz "muhendis"
+
       And submit butonuna tiklayiniz
+      And liste olustur
       And search butonuna firstName giriniz "aslan"
       Then  kaydin ekledigini dogrulayiniz "aslan"
 
 
-  Scenario: TC03 silme
+  Scenario: TC03_SIL
     And sil butonuna basiniz
     Then  kaydin silindigini dogrulayiniz
 
 
-  Scenario: TC04 liste
+  Scenario: TC04_LISTE
     And liste olustur
 
 

@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.asserts.SoftAssert;
 import pages.US04_WebTablesPage;
 import pages.US05_ButtonBoxPage;
 import utilities.Driver;
@@ -59,6 +60,8 @@ uS05_ButtonBoxPage.button.click();
     @And("clickme butonuna basildigini dogrulayiniz")
     public void clickmeButonunaBasildiginiDogrulayiniz() {
         Assert.assertTrue(uS05_ButtonBoxPage.dynamicClickMessage.getText().equals("You have done a dynamic click"));
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertTrue(uS05_ButtonBoxPage.dynamicClickMessage.getText().equals("You have done a dynamic click"),"gorunuyor");
     }
 
     @And("Buttons yazisinin gorunurlugunu basildigini Dogrulayiniz")
@@ -67,4 +70,3 @@ uS05_ButtonBoxPage.button.click();
         Assert.assertFalse(uS05_ButtonBoxPage.yaziButton.getText().equals("BUTTONS"));
     }
 }
-

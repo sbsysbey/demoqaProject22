@@ -10,7 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import pages.US02_CheckBoxPage;
 import utilities.Driver;
 
-public class US02_CheckboxDefinitions {
+public class US02_CheckBoxDefinitions {
     US02_CheckBoxPage checkBoxPage = new US02_CheckBoxPage();
     Actions actions = new Actions(Driver.getDriver());
 

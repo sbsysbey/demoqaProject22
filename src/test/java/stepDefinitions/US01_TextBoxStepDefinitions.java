@@ -29,16 +29,17 @@ public class US01_TextBoxStepDefinitions {
     }
     @Then("textbox butonuna tiklayiniz")
     public void textbox_butonuna_tiklayiniz() {
-       // textBoxPage.elementsMenu.click();
+
        actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(1);
         textBoxPage.textBoxMenuLink.click();
     }
+
     @Then("Fullname giriniz")
     public void fullname_giriniz() {
-        textBoxPage.userForm.click();
         textBoxPage.fullnameTextBox.sendKeys(ConfigReader.getProperty("fullName"));
     }
+
     @Then("email giriniz")
     public void email_giriniz () {
         textBoxPage.emailTextBox.sendKeys(ConfigReader.getProperty("email"));
@@ -54,14 +55,11 @@ public class US01_TextBoxStepDefinitions {
     }
     @Then("submit butonuna tiklayin")
     public void submit_butonuna_tiklayin () {
-     actions.sendKeys(Keys.PAGE_DOWN).perform();
-
-        ReusableMethods.waitFor(1);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+       // ReusableMethods.waitFor(1);
         textBoxPage.submitButton.click();
         ReusableMethods.waitFor(1);
     }
-
-
 
 
     @Then("giris isleminin tamamlandigini dogrulayin")
@@ -139,4 +137,15 @@ public class US01_TextBoxStepDefinitions {
 
     }
 
+
+    @Given("slide duzenle")
+    public void slideDuzenle() {
+        actions.clickAndHold(textBoxPage.emailTextBox).perform();
+
+     ReusableMethods.setSliderBall(textBoxPage.fullnameTextBox,2,5);
+    }
+
+    @And("Map olusturmayi duzenle")
+    public void mapOlusturmayiDuzenle() {
+    }
 }

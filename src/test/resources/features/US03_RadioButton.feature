@@ -18,5 +18,6 @@ Background:
 
 
   Scenario: TC03
-      Then No butonunun secildigini  dogrulayiniz
+    And no butonunu seciniz
+      Then no butonunun secildigini  dogrulayiniz
 
