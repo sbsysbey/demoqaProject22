@@ -21,6 +21,34 @@ public class US06_LinksPage {
     @FindBy(xpath ="//.mg[@class='banner-image']")
     public WebElement anasayfa;
 
+    @FindBy(id ="dynamicLink")
+    public WebElement linkHomeDynamic;
+
+    @FindBy(id ="created")
+    public WebElement created;
+
+    @FindBy(id ="no-content")
+    public WebElement nocontent;
+
+    @FindBy(id ="moved")
+    public WebElement moved;
+
+    @FindBy(id ="bad-request")
+    public WebElement badrequest;
+
+    @FindBy(id ="unauthorized")
+    public WebElement unauthorized;
+
+    @FindBy(id ="forbidden")
+    public WebElement forbidden;
+
+    @FindBy(id ="invalid-url")
+    public WebElement notFound;
+
+    @FindBy(id ="linkResponse")
+    public WebElement yazi;
+    @FindBy(xpath ="//div[@class='pattern-backgound playgound-header']")
+    public WebElement linkTitle;
 
 
 }
