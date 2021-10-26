@@ -37,21 +37,16 @@ linksPage.linkHome.click();
 
     @Then("Yeni bir sekme de anasayfa acildigini dogrulayiniz")
     public void yeniBirSekmeDeAnasayfaAcildiginiDogrulayiniz() {
+     ArrayList tabs = new ArrayList (Driver.getDriver().getWindowHandles());
 
-     //   Driver.getDriver().findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL +"t");
 
-          //  Driver.getDriver().switchTo().window(Driver.getDriver().getWindowHandle());
-      //  Driver.getDriver().switchTo().window("1").getWindowHandle();
-      //  ArrayList tabs = new ArrayList (Driver.getDriver().getWindowHandles());
-      //  System.out.println(tabs.size());
-        Driver.getDriver().get("https://demoqa.com/");
-        System.out.println(Driver.getDriver().getTitle());
-       // Driver.getDriver().switchTo().window(tabs.get(0));
+        System.out.println(Driver.getDriver().getCurrentUrl());
 
-        Assert.assertTrue(Driver.getDriver().getTitle().contains("ToolsQA"));
-        Driver.getDriver().close();
-
-        Driver.getDriver().close();
+                     Driver.getDriver().switchTo().window((String) tabs.get(1));
+        System.out.println(Driver.getDriver().getCurrentUrl());
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://demoqa.com/"));
+        Driver.getDriver().switchTo().window((String) tabs.get(1)).close();
+        Driver.getDriver().switchTo().window((String) tabs.get(0));
 }
     @And("HomeEur butonuna tiklayin")
     public void homeeurButonunaTiklayin() {

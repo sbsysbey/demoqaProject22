@@ -9,9 +9,6 @@ Feature: US06_Line
   Scenario: TC_01_Home
     And Home butonuna tiklayin
    Then Yeni bir sekme de anasayfa acildigini dogrulayiniz
-
-
-  Scenario: TC_02_dynamic
     And HomeEur butonuna tiklayin
     Then Yeni bir sekme de anasayfa acildigini dogrulayiniz
 
