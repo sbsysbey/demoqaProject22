@@ -1,4 +1,4 @@
-Feature: US06_Line
+Feature: US06_Links
 
   Background:
     Given demoqa anasayfaya gidin

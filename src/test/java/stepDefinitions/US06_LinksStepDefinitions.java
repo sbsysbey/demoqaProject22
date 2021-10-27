@@ -37,16 +37,18 @@ linksPage.linkHome.click();
 
     @Then("Yeni bir sekme de anasayfa acildigini dogrulayiniz")
     public void yeniBirSekmeDeAnasayfaAcildiginiDogrulayiniz() {
-     ArrayList tabs = new ArrayList (Driver.getDriver().getWindowHandles());
+   ArrayList tabs = new ArrayList (Driver.getDriver().getWindowHandles());
 
 
         System.out.println(Driver.getDriver().getCurrentUrl());
 
-                     Driver.getDriver().switchTo().window((String) tabs.get(1));
+        Driver.getDriver().switchTo().window((String) tabs.get(1));
+
         System.out.println(Driver.getDriver().getCurrentUrl());
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().equals("https://demoqa.com/"));
-        Driver.getDriver().switchTo().window((String) tabs.get(1)).close();
-        Driver.getDriver().switchTo().window((String) tabs.get(0));
+
+    Driver.getDriver().switchTo().window((String) tabs.get(1)).close();
+    Driver.getDriver().switchTo().window((String) tabs.get(0));
 }
     @And("HomeEur butonuna tiklayin")
     public void homeeurButonunaTiklayin() {
