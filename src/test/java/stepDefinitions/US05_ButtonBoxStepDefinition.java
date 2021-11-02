@@ -73,6 +73,6 @@ uS05_ButtonBoxPage.button.click();
     @And("{string} yazisinin gorunurlugunu  Dogrulayiniz")
     public void yazisininGorunurlugunuDogrulayiniz(String arg0) {
         System.out.println(uS05_ButtonBoxPage.yaziButton.getText());
-        Assert.assertFalse(uS05_ButtonBoxPage.yaziButton.getText().equals(arg0));
+        Assert.assertTrue(uS05_ButtonBoxPage.yaziButton.getText().equals(arg0));
     }
 }
