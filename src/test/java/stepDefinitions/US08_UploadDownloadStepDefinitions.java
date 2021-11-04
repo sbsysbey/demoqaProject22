@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,9 @@ import pages.US07_BrokenLinksPage;
 import pages.US08_UploadDownloadPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class US08_UploadDownloadStepDefinitions {
 
@@ -33,9 +37,10 @@ public class US08_UploadDownloadStepDefinitions {
 
     @Given("choosefile btonunu seciniz")
     public void choosefileBtonunuSeciniz() {
-        WebElement upload_file = uploadDownloadPage.dosyaSec;
-        upload_file.sendKeys("C:/Users/MRN/Pictures/mesaj.png");
+    //    WebElement upload_file = uploadDownloadPage.dosyaSec;
+       // upload_file.sendKeys("C:/Users/MRN/Pictures/mesaj.png");
       //  uploadDownloadPage.dosyaSec.click();
+        uploadDownloadPage.dosyaSec.sendKeys("C:/Users/MRN/Pictures/mesaj.png");
     }
 
 
@@ -43,13 +48,16 @@ public class US08_UploadDownloadStepDefinitions {
     @Given("sectigimiz dosyanin gorunurlugunu dogrulayiniz")
     public void sectigimizDosyaninGorunurlugunuDogrulayiniz() {
         System.out.println(uploadDownloadPage.dosyaSecdogrula.getText());
+        Assert.assertTrue(uploadDownloadPage.dosyaSecdogrula.getText().contains("mesaj"));
 
     }
 
     @Given("bir dosya indiriniz")
     public void birDosyaIndiriniz() {
+        ReusableMethods.waitFor(1);
         uploadDownloadPage.downLoad.click();
     }
+
     @Given("dosyaninin indriildigini dogrulayiniz")
     public void dosyanininIndriildiginiDogrulayiniz() {
     }
@@ -60,5 +68,11 @@ public class US08_UploadDownloadStepDefinitions {
 
     @Given("indirilen dosyayi gorunurlugunu dogrulayiniz")
     public void indirilenDosyayiGorunurlugunuDogrulayiniz() {
+        //String filePath="C:/Users/BEST TECH/Downloads/sampleFile.jpeg";
+        ReusableMethods.waitFor(1);
+      //  boolean isDownload= Files.exists(Paths.get(filePath));
+      //  Assert.assertTrue(isDownload);
+Assert.assertTrue(Files.exists(Paths.get("C:/Users/BEST TECH/Downloads/sampleFile.jpeg")));
+
     }
 }
