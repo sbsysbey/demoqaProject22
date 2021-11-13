@@ -75,9 +75,6 @@ public class US09_DynamicPropertiesStepDefinitions {
     @Then("Visible After bes Seconds isimli butonun sayfa yuklendiginde goruntulenemez oldugunu")
     public void visibleAfterBesSecondsIsimliButonunSayfaYuklendigindeGoruntulenemezOldugunu() {
         Assert.assertTrue("yanlıs",dynamicPropertiesPage.visibleAfter.isDisplayed());
-
-
-
     }
 
     @Then("ve bes sn sonra goruntulenebilir oldugunu dogrulayin")
