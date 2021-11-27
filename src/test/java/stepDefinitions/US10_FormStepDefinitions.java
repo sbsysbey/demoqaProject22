@@ -2,18 +2,13 @@ package stepDefinitions;
 
 import com.github.javafaker.Faker;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import io.cucumber.java.en.*;
 
-import org.checkerframework.checker.units.qual.K;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.interactions.Actions;
-
-
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 import pages.US10_FormPage;
@@ -23,8 +18,6 @@ import utilities.ReusableMethods;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -408,10 +401,7 @@ String girilenTarih=gelenDogumTarihi.substring(gelenDogumTarihi.length()-4);
 
     @Then("Ayni anda birden fazla subject girilebildigini dogrulayin")
     public void ayniAndaBirdenFazlaSubjectGirilebildiginiDogrulayin() {
-        String bolumler=formsPage.subjectSonuc.getText();
-        String[] bol = bolumler.split(",");
 
-        Assert.assertTrue(formsPage.subjectSonuc.getText().contains("Physics"));
 
         List<String> list=new ArrayList<String>();
         String str = formsPage.subjectSonuc.getText();

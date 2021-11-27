@@ -61,7 +61,6 @@ Feature: US10_Form
     And subject Giriniz
     And Hobby seciniz 2
     And Resim seciniz
-
     And Current Adres giriniz
     And State seciniz
     And City seciniz
@@ -143,6 +142,7 @@ Feature: US10_Form
     And cinsiyet seciniz "rastgele"
     And valid telefon giriniz "valid"
     And subject Giriniz
+    And Submiti Tiklayin
     And birden fazla giris yapilabildigini dogrulayin
 
 

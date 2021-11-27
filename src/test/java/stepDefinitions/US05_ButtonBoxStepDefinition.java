@@ -4,6 +4,7 @@ import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
 import pages.US04_WebTablesPage;
@@ -72,6 +73,7 @@ uS05_ButtonBoxPage.button.click();
 
     @And("{string} yazisinin gorunurlugunu  Dogrulayiniz")
     public void yazisininGorunurlugunuDogrulayiniz(String arg0) {
+        actions.sendKeys(Keys.PAGE_UP);
         System.out.println(uS05_ButtonBoxPage.yaziButton.getText());
         Assert.assertTrue(uS05_ButtonBoxPage.yaziButton.getText().equals(arg0));
     }
