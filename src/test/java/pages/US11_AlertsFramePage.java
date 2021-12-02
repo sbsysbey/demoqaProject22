@@ -20,10 +20,10 @@ public class US11_AlertsFramePage {
     @FindBy(xpath ="//span[.='Frames']")
     public WebElement framesSekmesi;
 
-    @FindBy(xpath ="//span[.='Nested Frames]")
+    @FindBy(xpath ="//span[.='Nested Frames']")
     public WebElement nestedFramesSekmesi;
 
-    @FindBy(xpath ="//span[.='Modal Dialogs]")
+    @FindBy(xpath ="//span[.='Modal Dialogs']")
     public WebElement ModalDialogSekmesi;
 
     @FindBy(id ="tabButton")
@@ -60,4 +60,25 @@ public class US11_AlertsFramePage {
 
     @FindBy(tagName ="body")
     public WebElement messagText;
+
+    @FindBy(id ="showLargeModal")
+    public WebElement showLargeModal;
+
+    @FindBy(id ="showSmallModal")
+    public WebElement showSmallModal;
+
+    @FindBy(id ="closeSmallModal")
+    public WebElement closeSmallModal;
+
+    @FindBy(id ="closeLargeModal")
+    public WebElement closeLargeModal;
+
+    @FindBy(id ="example-modal-sizes-title-lg")
+    public WebElement largeModalBaslik;
+
+    @FindBy(id ="example-modal-sizes-title-sm")
+    public WebElement smallModalBaslik;
+
+    @FindBy(xpath = "//div[@class='modal-body']")
+    public WebElement small_LargeModaltext;
 }

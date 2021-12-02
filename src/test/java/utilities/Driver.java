@@ -35,7 +35,7 @@ public class Driver {
         }
         //  driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //  driver.close();
+        // driver.close();
         return driver;
     }
     static public void closeDriver(){
