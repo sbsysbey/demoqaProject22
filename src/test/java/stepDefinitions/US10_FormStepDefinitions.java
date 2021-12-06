@@ -193,7 +193,7 @@ public class US10_FormStepDefinitions {
     @And("City seciniz")
     public void citySeciniz() {
 
-        formsPage.city.sendKeys("Delhi"+ Keys.ENTER);
+        formsPage.city.sendKeys("Delhi" + Keys.ENTER);
 
     }
 
@@ -222,7 +222,7 @@ public class US10_FormStepDefinitions {
         System.out.println(colorfirstName);
 
         String colorHex = Color.fromString(colorfirstName).asHex();
-        System.out.println("firstName: "+colorHex);
+        System.out.println("firstName: " + colorHex);
         Assert.assertEquals(colorHex, "#dc3545");
     }
 
@@ -240,7 +240,7 @@ public class US10_FormStepDefinitions {
         System.out.println(colorLastName);
 
         String colorHex = Color.fromString(colorLastName).asHex();
-        System.out.println("LastName: "+colorHex);
+        System.out.println("LastName: " + colorHex);
         Assert.assertEquals(colorHex, "#dc3545");
     }
 
@@ -260,15 +260,13 @@ public class US10_FormStepDefinitions {
     }
 
 
-
-
     @Then("email at olmadan kabul edilmedigini dogrulayin")
     public void emailAtOlmadanKabulEdilmediginiDogrulayin() {
         actions.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.waitFor(1);
         String colormail = formsPage.userEmail.getCssValue("border-color");
         String colorHex = Color.fromString(colormail).asHex();
-        System.out.println("ateksilmail : "+colorHex);
+        System.out.println("ateksilmail : " + colorHex);
         Assert.assertEquals(colorHex, "#dc3545");
 
 
@@ -280,7 +278,7 @@ public class US10_FormStepDefinitions {
         ReusableMethods.waitFor(1);
         String colormail = formsPage.userEmail.getCssValue("border-color");
         String colorHex = Color.fromString(colormail).asHex();
-        System.out.println("mail: "+colorHex);
+        System.out.println("mail: " + colorHex);
         Assert.assertEquals(colorHex, "#dc3545");
 
     }
@@ -297,9 +295,8 @@ public class US10_FormStepDefinitions {
         ReusableMethods.waitFor(1);
         String colortel = formsPage.userNumber.getCssValue("border-color");
         String colorHex = Color.fromString(colortel).asHex();
-        System.out.println("tel: "+colorHex);
+        System.out.println("tel: " + colorHex);
         Assert.assertEquals(colorHex, "#dc3545");
-
 
 
     }
@@ -315,7 +312,7 @@ public class US10_FormStepDefinitions {
     public void gelecekYiliDogumTarihiGiriniz() {
 
         DateFormat sdf = new SimpleDateFormat("dd MMM YYYY");
-       int tarih = new java.util.Date().getYear();
+        int tarih = new java.util.Date().getYear();
         System.out.println(sdf.format(tarih));
 
         formsPage.dateOfBirthInput.click();
@@ -325,12 +322,12 @@ public class US10_FormStepDefinitions {
         dropdownAy.selectByValue("4");
 
 
-        int yil = fake.number().numberBetween(2022,2030);
+        int yil = fake.number().numberBetween(2022, 2030);
 
         Select dropdownYil = new Select(formsPage.selectYil);
         dropdownYil.selectByValue(String.valueOf(yil));
 
-        Driver.getDriver().findElement(By.xpath("(//*[contains(@class,'react-datepicker')])[" + fake.number().numberBetween(28, 76)  + "]")).click();
+        Driver.getDriver().findElement(By.xpath("(//*[contains(@class,'react-datepicker')])[" + fake.number().numberBetween(28, 76) + "]")).click();
 
 
         // formsPage.dateOfBirthInput.sendKeys(Keys.ENTER);
@@ -343,20 +340,20 @@ public class US10_FormStepDefinitions {
         Date tarih = new java.util.Date();
         System.out.println(sdf.format(tarih));
 
-String bugunkutarihStr=sdf.format(tarih).toString();
-String bugunkutarih=bugunkutarihStr.substring(bugunkutarihStr.length()-4);
-String gelenDogumTarihi=formsPage.birtDaySonuc.getText();
+        String bugunkutarihStr = sdf.format(tarih).toString();
+        String bugunkutarih = bugunkutarihStr.substring(bugunkutarihStr.length() - 4);
+        String gelenDogumTarihi = formsPage.birtDaySonuc.getText();
 
-String girilenTarih=gelenDogumTarihi.substring(gelenDogumTarihi.length()-4);
+        String girilenTarih = gelenDogumTarihi.substring(gelenDogumTarihi.length() - 4);
 
-        System.out.println(bugunkutarih+"  :   "+girilenTarih);
-       int  bugunkuYilInt=Integer.parseInt(bugunkutarih);
-        int  gelenyilInt=Integer.parseInt(girilenTarih);
-        if(bugunkuYilInt==gelenyilInt){
+        System.out.println(bugunkutarih + "  :   " + girilenTarih);
+        int bugunkuYilInt = Integer.parseInt(bugunkutarih);
+        int gelenyilInt = Integer.parseInt(girilenTarih);
+        if (bugunkuYilInt == gelenyilInt) {
             System.out.println("tarih bugünle aynı");
-        }else if(bugunkuYilInt<gelenyilInt){
+        } else if (bugunkuYilInt < gelenyilInt) {
             System.out.println("dogum günü gelecekte olamaz");
-        }else {
+        } else {
             System.out.println("hersey normal");
         }
 
@@ -373,48 +370,45 @@ String girilenTarih=gelenDogumTarihi.substring(gelenDogumTarihi.length()-4);
         Date bugunkuTarihdate = new Date();
 
 
-              System.out.println(dateFormat.format(bugunkuTarihdate));
+        System.out.println(dateFormat.format(bugunkuTarihdate));
 
 
-        String gelenDogumTarihi=formsPage.birtDaySonuc.getText();
+        String gelenDogumTarihi = formsPage.birtDaySonuc.getText();
         System.out.println(gelenDogumTarihi);
         DateFormat df = new SimpleDateFormat("dd MMM,yyyy");
 
-      Date gelenTarihDate = df.parse(gelenDogumTarihi);
+        Date gelenTarihDate = df.parse(gelenDogumTarihi);
 
-        System.out.println("oldu?:    "+gelenTarihDate);
+        System.out.println("oldu?:    " + gelenTarihDate);
         System.out.println(dateFormat.format(gelenTarihDate));
 
-        int eng=gelenTarihDate.compareTo(bugunkuTarihdate);
+        int eng = gelenTarihDate.compareTo(bugunkuTarihdate);
         System.out.println(eng);
 
-        if(eng==0){
+        if (eng == 0) {
             System.out.println("tarih bugünle aynı");
-        }else if(eng==1){
+        } else if (eng == 1) {
             System.out.println("dogum günü gelecekte olamaz");
-        }else {
+        } else {
             System.out.println("hersey normal");
         }
     }
-
 
 
     @Then("Ayni anda birden fazla subject girilebildigini dogrulayin")
     public void ayniAndaBirdenFazlaSubjectGirilebildiginiDogrulayin() {
 
 
-        List<String> list=new ArrayList<String>();
+        List<String> list = new ArrayList<String>();
         String str = formsPage.subjectSonuc.getText();
         String[] arrStr = str.split(",");
-        for (String el: arrStr)
+        for (String el : arrStr)
             list.add(el);
 
         System.out.println(list);
         System.out.println(list.size());
-        Assert.assertTrue(list.size()>2);
-        }
-
-
+        Assert.assertTrue(list.size() > 2);
+    }
 
 
     @Then("Subjet bolumunde otomatik tamamlamayi dogrulayin")
@@ -447,20 +441,19 @@ String girilenTarih=gelenDogumTarihi.substring(gelenDogumTarihi.length()-4);
     @And("birden fazla giris yapilabildigini dogrulayin")
     public void birdenFazlaGirisYapilabildiginiDogrulayin() {
         List<String> bolumler = getElementsText(By.xpath("//div[@class='css-12jo7m5 subjects-auto-complete__multi-value__label']"));
-        System.out.println("bolumler=:" +bolumler);
+        System.out.println("bolumler=:" + bolumler);
 
         System.out.println(bolumler.size());
-        Assert.assertTrue(bolumler.size()>2);
+        Assert.assertTrue(bolumler.size() > 2);
 
     }
-
 
 
     @Then("resmin secildigini dogrulayiniz")
     public void resminSecildiginiDogrulayiniz() {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         System.out.println(formsPage.dosyaSecSonuc.getText());
-Assert.assertTrue(formsPage.dosyaSecSonuc.getText().equals("mesaj.png"));
+        Assert.assertTrue(formsPage.dosyaSecSonuc.getText().equals("mesaj.png"));
 
     }
 
@@ -468,7 +461,7 @@ Assert.assertTrue(formsPage.dosyaSecSonuc.getText().equals("mesaj.png"));
     public void currentAdresSadeceRakamGiriniz() {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         formsPage.currentAddress.sendKeys("123456789");
-        }
+    }
 
 
     @And("Current Adres sadece harf giriniz")
@@ -497,7 +490,7 @@ Assert.assertTrue(formsPage.dosyaSecSonuc.getText().equals("mesaj.png"));
         System.out.println(formsPage.stateTik.getText());
         Assert.assertTrue(formsPage.stateTik.getText().equals("NCR"));
 
-ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(2);
         formsPage.state.sendKeys("J");
         actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.TAB).perform();
         System.out.println(formsPage.stateTik.getText());
@@ -514,7 +507,7 @@ ReusableMethods.waitFor(2);
 
 
         ReusableMethods.waitFor(1);
-          }
+    }
 
     @Then("city isimlerinin gorundugunu dogrulayiniz")
     public void cityIsimlerininGorundugunuDogrulayiniz() {
