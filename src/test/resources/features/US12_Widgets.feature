@@ -42,12 +42,3 @@ Feature:Widgets
     Then Kullanici ikinci verinin oldugunu dogrular
 
 
-
-
-
-  Scenario: TC_04_AutoComplete  single dropdownu birden fazla veri kabul etmemesi
-    And Kullanici AutoComplete sekmesini tiklar
-    Given Kullanici Multiple text alaninna "a" gonderir
-    And kullanici bir veri secer
-    Given Kullanici multiple SingleAuto komplete yeni veri girer
-    Then Kullanici ayni text alaninda eski verinin silindigini dogrular

@@ -47,9 +47,6 @@ public class US12_WidgetsPage {
     public WebElement multipleAuto_CompleteInpu;
 
 
-    @FindBy(id = "autoCompleteSingle")
-    public WebElement singleCompleteInpu;
-
     @FindBy(xpath ="//div[@class='auto-complete__value-container css-1hwfws3']")
     public WebElement singleCompleteInput;
 
