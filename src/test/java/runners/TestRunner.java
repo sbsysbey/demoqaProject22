@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features="src/test/resources/features",
         glue="stepDefinitions",
         dryRun = false,
-        tags="@us3"
+        tags="@dene"
 )
 
 public class TestRunner {

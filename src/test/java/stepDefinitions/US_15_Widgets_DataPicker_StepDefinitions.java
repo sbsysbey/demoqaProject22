@@ -1,125 +1,80 @@
 package stepDefinitions;
 
 import com.github.javafaker.Faker;
+import com.sun.jna.Structure;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import pages.US_14_dataPicker_maplePage;
 import pages.US_15_Widgets_DataPickerPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 public class US_15_Widgets_DataPicker_StepDefinitions {
+    US_14_dataPicker_maplePage datePicker = new US_14_dataPicker_maplePage();
 
-    US_15_Widgets_DataPickerPage dataPickers = new US_15_Widgets_DataPickerPage();
     Actions actions = new Actions(Driver.getDriver());
-   String girilenYil="";
-   String   girilenGun = "0";
+    String girilenYil = "";
+    String girilenGun = "0";
     String ay;
-int gun=0;
+    int gun = 0;
 
     @And("kullanici dataPicker sekmesini acar")
     public void kullaniciWidgetsSekmesiniAcar() {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(1);
-        dataPickers.dataPickerSekmesi.click();
+        datePicker.dataPickerSekmesi.click();
         actions.sendKeys(Keys.PAGE_UP).perform();
         ReusableMethods.waitFor(2);
 
     }
 
 
-
-
     @And("Kullanici Yil girer {string}")
     public void kullaniciYilGirer(String arg0) {
-        girilenYil=arg0;
-        Select dropdownYil = new Select(dataPickers.selectYil);
+        girilenYil = arg0;
+        Select dropdownYil = new Select(datePicker.selectYil);
         dropdownYil.selectByValue(arg0);
     }
 
     @And("Kullanici Ayi girer {int}")
     public void kullaniciAyiGirer(int arg0) {
-        ay=String.valueOf(arg0);
+        ay = String.valueOf(arg0);
         System.out.println(ay);
-        Select dropdownAy = new Select(dataPickers.selectAy);
+        Select dropdownAy = new Select(datePicker.selectAy);
         arg0 = arg0 - 1;
         dropdownAy.selectByIndex(arg0);
     }
 
-    @And("Kullanici Gunu secer {string}")
-    public void kullaniciGunuSecer(String arg0) {
-
-        String ilkGunText = dataPickers.dateilkGun.getText();
-        String s_ay = dataPickers.selectAy.getAttribute("value");
-
-        if (s_ay.equals("4") || s_ay.equals("6") || s_ay.equals("9") || s_ay.equals("11")) {
-            if (ilkGunText.equals("25")) {
-                gun = Integer.parseInt(arg0) + 6;
-            } else if (ilkGunText.equals("26")) {
-                gun = Integer.parseInt(arg0) + 5;
-            } else if (ilkGunText.equals("27")) {
-                gun = Integer.parseInt(arg0) + 4;
-            } else if (ilkGunText.equals("28")) {
-                gun = Integer.parseInt(arg0) + 3;
-            } else if (ilkGunText.equals("29")) {
-                gun = Integer.parseInt(arg0) + 2;
-            } else if (ilkGunText.equals("30")) {
-                gun = Integer.parseInt(arg0) + 1;
-            } else {
-                gun = Integer.parseInt(arg0);
-            }
-        } else if (s_ay.equals("3")) {
-            if (ilkGunText.equals("25")) {
-                gun = Integer.parseInt(arg0) + 4;
-            } else if (ilkGunText.equals("26")) {
-                gun = Integer.parseInt(arg0) + 3;
-            } else if (ilkGunText.equals("27")) {
-                gun = Integer.parseInt(arg0) + 2;
-            } else if (ilkGunText.equals("28")) {
-                gun = Integer.parseInt(arg0) + 1;
-            } else if (ilkGunText.equals("29")) {
-                gun = Integer.parseInt(arg0) + 1;
-            } else if (ilkGunText.equals("1")) {
-                gun = Integer.parseInt(arg0);
-            }
-
-        } else {
-            if (ilkGunText.equals("25")) {
-                gun = Integer.parseInt(arg0) + 7;
-            } else if (ilkGunText.equals("26")) {
-                gun = Integer.parseInt(arg0) + 6;
-            } else if (ilkGunText.equals("27")) {
-                gun = Integer.parseInt(arg0) + 5;
-            } else if (ilkGunText.equals("28")) {
-                gun = Integer.parseInt(arg0) + 4;
-            } else if (ilkGunText.equals("29")) {
-                gun = Integer.parseInt(arg0) +3;
-            } else if (ilkGunText.equals("30")) {
-                gun = Integer.parseInt(arg0) +2;
-            } else if (ilkGunText.equals("31")) {
-                gun = Integer.parseInt(arg0) + 1;
-            }else {
-                gun = Integer.parseInt(arg0);
-            }
-        }
-
-        Driver.getDriver().findElement(By.xpath("(//*[contains(@class,'react-datepicker__day react-datepicker__day')])[" + gun + "]")).click();
+    @And("Kullanici Ay girer  {string}")
+    public void kullaniciAyGirer(String arg0) {
+        ay = String.valueOf(arg0);
+        Select dropdownAy = new Select(datePicker.selectAy);
+        dropdownAy.selectByVisibleText(arg0);
     }
 
-    @Then("dogru tarih oldugunu test ediniz")
-    public void dogruTarihOldugunuTestEdiniz() {
-        System.out.println("gelen tarih: " + dataPickers.tarihsonuc.getAttribute("value"));
 
+    @Then("dogru tarih oldugunu test eder")
+    public void dogruTarihOldugunuTestEder() {
+        System.out.println("gelen tarih: " + datePicker.tarihsonuc.getAttribute("value"));
+        Assert.assertTrue(datePicker.tarihsonuc.getAttribute("value").equals(ay + "/" + girilenGun + "/" + girilenYil));
     }
 
 
@@ -129,11 +84,11 @@ int gun=0;
         String pattern = "MM/dd/yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
-        System.out.println("gelen tarih: " + dataPickers.tarihsonuc.getAttribute("value"));
+        System.out.println("gelen tarih: " + datePicker.tarihsonuc.getAttribute("value"));
         LocalDate tarih = LocalDate.now();
-        //   System.out.println("Bugnün tarihi: "+DateTimeFormatter.ofPattern("MM/dd/yyyy").format(tarih));
 
-        d1 = simpleDateFormat.parse(dataPickers.tarihsonuc.getAttribute("value"));
+
+        d1 = simpleDateFormat.parse(datePicker.tarihsonuc.getAttribute("value"));
         d2 = simpleDateFormat.parse(DateTimeFormatter.ofPattern("MM/dd/yyyy").format(tarih));
         System.out.println("gelen: " + d1);
         System.out.println("bugun: " + d2);
@@ -161,103 +116,145 @@ int gun=0;
 
     }
 
-    @And("Kullanici zamanbox i tiklar tiklar")
-    public void kullaniciZamanboxITiklarTiklar() {
-        dataPickers.zamansecme2.click();
+
+    // Zamanlı Bolum
 
 
-    }
+    @And("Kullanici gun secer {int}")
+    public void kullaniciGunSecer(int arg0) {
+        ReusableMethods.waitFor(1);
+        datePicker.getGun(arg0).click();
+        //System.out.println();
+        for (int i = 1; i < 8; i++) {
+            ReusableMethods.waitFor(1);
 
+            //  WebElement takvimgunu = Driver.getDriver().findElement(By.xpath(" (//*[contains(@class,'react-datepicker__day react-datepicker__day')])[" + (i) + "]"));
+            WebElement takvimgunu =datePicker.getGun(i);
 
-    @And("Kullanici zaman olumune Yil girer {string}")
-    public void kullaniciZamanOlumuneYilGirer(String arg0) {
+            if (takvimgunu.getText().equals("1")) {
+                int belligun = arg0;
+                //  actions.click(Driver.getDriver().findElement(By.xpath(" (//*[contains(@class,'react-datepicker__day react-datepicker__day')])[" + (i + belligun - 1) + "]"))).perform();
+                datePicker.getGun((i + belligun - 1)).click();
 
-        Select dropdownzamanYil = new Select(dataPickers.selectZamanYil);
-        dropdownzamanYil.selectByValue(arg0);
-
-
-    }
-
-    @And("Kullanicizaman olumune Ayi girer {int}")
-    public void kullanicizamanOlumuneAyiGirer(int arg0) {
-        dataPickers.selectZamanAy.click();
-        actions.sendKeys(Keys.DOWN).perform();
-        ReusableMethods.waitFor(2);
-        actions.sendKeys(Keys.DOWN).perform();
-        ReusableMethods.waitFor(2);
-        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.TAB).click().perform();
-        ReusableMethods.waitFor(2);
-    }
-
-
-    @And("Kullanici Ay girer  {string}")
-    public void kullaniciAyGirer(String arg0) {
-        ay=String.valueOf(arg0);
-        Select dropdownAy = new Select(dataPickers.selectAy);
-        dropdownAy.selectByVisibleText(arg0);
-    }
-
-    @And("Kullanici Gun secer {string}")
-    public void kullaniciGunSecer(String arg0) {
-girilenGun=arg0;
-        String ilkGunText = dataPickers.dateilkGun.getText();
-        String s_ay = dataPickers.selectAy.getAttribute("value");
-        System.out.println(s_ay);
-        if (s_ay.equals("4") || s_ay.equals("6") || s_ay.equals("9") || s_ay.equals("11")) {
-            if (ilkGunText.equals("25")) {
-                gun = Integer.parseInt(arg0) + 6;
-            } else if (ilkGunText.equals("26")) {
-                gun = Integer.parseInt(arg0) + 5;
-            } else if (ilkGunText.equals("27")) {
-                gun = Integer.parseInt(arg0) + 4;
-            } else if (ilkGunText.equals("28")) {
-                gun = Integer.parseInt(arg0) + 3;
-            } else if (ilkGunText.equals("29")) {
-                gun = Integer.parseInt(arg0) + 2;
-            } else if (ilkGunText.equals("30")) {
-                gun = Integer.parseInt(arg0) + 1;
+                ReusableMethods.waitFor(1);
+                break;
             } else {
-                gun = Integer.parseInt(arg0);
+                continue;
             }
-        }  else if (s_ay.equals("2")) {
-            if (ilkGunText.equals("25")) {
-                gun = Integer.parseInt(arg0) + 4;
-            } else if (ilkGunText.equals("26")) {
-                gun = Integer.parseInt(arg0) + 3;
-            } else if (ilkGunText.equals("27")) {
-                gun = Integer.parseInt(arg0) + 2;
-            } else if (ilkGunText.equals("28")) {
-                gun = Integer.parseInt(arg0) + 1;
-            } else if (ilkGunText.equals("29")) {
-                gun = Integer.parseInt(arg0) + 1;
-            } else if (ilkGunText.equals("1")) {
-                gun = Integer.parseInt(arg0);
-            }
-
-        } else {
-            if (ilkGunText.equals("25")) {
-                gun = Integer.parseInt(arg0) + 7;
-            } else if (ilkGunText.equals("26")) {
-                gun = Integer.parseInt(arg0) + 6;
-            } else if (ilkGunText.equals("27")) {
-                gun = Integer.parseInt(arg0) + 5;
-            } else if (ilkGunText.equals("28")) {
-                gun = Integer.parseInt(arg0) + 4;
-            } else if (ilkGunText.equals("29")) {
-                gun = Integer.parseInt(arg0) +3;
-            } else if (ilkGunText.equals("30")) {
-                gun = Integer.parseInt(arg0) + 2;
-            }else if (ilkGunText.equals("31")) {
-                    gun = Integer.parseInt(arg0) + 1;
-                }else {
-                    gun = Integer.parseInt(arg0);
-                }
         }
-        System.out.println("girilen Tarih: "+ay+"/"+girilenGun+"/"+girilenYil);
-        System.out.println(girilenYil);
-        System.out.println(ay);
-        Driver.getDriver().findElement(By.xpath("(//*[contains(@class,'react-datepicker__day react-datepicker__day')])[" + gun + "]")).click();
+
     }
+    @And("Kullanici Gun secer {string}")
+    public void kullaniciGunSecer(String gun) {
+        for (int i = 1; i < 8; i++) {
+            ReusableMethods.waitFor(1);
+            WebElement takvimgunu = datePicker.getGun(i);
+            if (takvimgunu.getText().equals("1")) {
+                int belligun = Integer.parseInt(gun);
+                datePicker.getGun((i + belligun - 1)).click();
+                ReusableMethods.waitFor(1);
+                break;
+            } else {
+                continue;
+            }
+        }
+
+
+    }
+
+    @And("Kullanici zaman bolumunu temizler")
+    public void kullaniciZamanBolumunuTemizler() {
+        ReusableMethods.waitFor(2);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.BACK_SPACE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+        datePicker.zamansecme2.sendKeys(Keys.DELETE);
+
+
+        ReusableMethods.waitFor(3);
+    }
+
+
+    @Then("Kontrol eder")
+    public void kontrolEder() {
+        ReusableMethods.setSliderBall(Driver.getDriver().findElement(By.xpath("//div[@class='react-datepicker__time']")), 5, 12);
+    }
+
+    @Then("Kullanici zaman gonderir {string}")
+    public void kullaniciZamanGonderir(String tarih) {
+
+        datePicker.zamansecme2.sendKeys(tarih);
+
+        ReusableMethods.waitFor(3);
+        datePicker.zamansecme2.click();
+        datePicker.bosclick.click();
+
+
+    }
+
+
+
+    @Then("Kullanici dogru zaman oldugunu test eder {string},<{int}>,<{int}>,{string}")
+    public void kullaniciDogruZamanOldugunuTestEder(String arg0, int arg1, int arg2, String arg3) {
+
+
+
+        String a=datePicker.zamanSonuc.getAttribute("value");
+        String[] gelenbol = a.split(" ");
+        Calendar gelenDate = Calendar.getInstance();
+        gelenDate.set(Calendar.YEAR, Integer.parseInt(gelenbol[2]));
+        gelenDate.set(Calendar.MONTH, Month.valueOf(gelenbol[0].toUpperCase()).getValue()-1);
+        gelenDate.set(Calendar.DATE, Integer.parseInt(gelenbol[1].substring(0,2)));
+        gelenDate.set(Calendar.HOUR,Integer.parseInt(gelenbol[3].split(":")[0]));
+        gelenDate.set(Calendar.MINUTE,Integer.parseInt(gelenbol[3].split(":")[1]));
+        java.util.Date gelentarih = gelenDate.getTime();
+        System.out.println("gelentarih = "+gelentarih);
+
+
+        String[] bol = arg3.split(":");
+        Calendar girilenDate = Calendar.getInstance();
+        girilenDate.set(Calendar.YEAR, Integer.parseInt(arg0));
+        girilenDate.set(Calendar.MONTH, arg1-1);
+        girilenDate.set(Calendar.DATE, arg2);
+
+        girilenDate.set(Calendar.HOUR,Integer.parseInt(bol[0]));
+        girilenDate.set(Calendar.MINUTE,Integer.parseInt(bol[1]));
+        java.util.Date girilenTarih = girilenDate.getTime();
+        System.out.println("girilen tarih = "+girilenTarih);
+        System.out.println("Date  aynı mı? " + gelentarih.equals(girilenTarih));
+        Assert.assertTrue(girilenTarih.compareTo(gelentarih)==0);
+
+
+
+    }
+
 
 }
 

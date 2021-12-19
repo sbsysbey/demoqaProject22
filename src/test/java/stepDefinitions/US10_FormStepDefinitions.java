@@ -339,7 +339,6 @@ public class US10_FormStepDefinitions {
         DateFormat sdf = new SimpleDateFormat("dd MMM YYYY");
         Date tarih = new java.util.Date();
         System.out.println(sdf.format(tarih));
-
         String bugunkutarihStr = sdf.format(tarih).toString();
         String bugunkutarih = bugunkutarihStr.substring(bugunkutarihStr.length() - 4);
         String gelenDogumTarihi = formsPage.birtDaySonuc.getText();

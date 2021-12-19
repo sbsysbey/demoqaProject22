@@ -61,31 +61,69 @@ public class US_14_dataPicker_maplePage {
 
     @FindBy(xpath="//select[@class='react-datepicker__month-select']")
     public WebElement selectAy;
-    @FindBy(xpath="//div[@class='react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--select']")
-    public WebElement selectSay;
 
-
-    @FindBy(xpath="(//*[contains(@class,'react-datepicker')])[29]")
-    public WebElement dateilkGun;
     @FindBy(id="datePickerMonthYearInput")
     public WebElement tarihsonuc;
 
     @FindBy(xpath="//select[@class='react-datepicker__year-select']")
     public WebElement selectYil;
 
-    @FindBy(xpath="//div[@class='react-datepicker__month-read-view']")
+
+
+    @FindBy(xpath = "//div[@class='pattern-backgound playgound-header']")
+    public WebElement bosclick;
+
+    @FindBy(xpath = "//div[@class='react-datepicker__month-dropdown-container react-datepicker__month-dropdown-container--select']")
+    public WebElement selectSay;
+
+
+    @FindBy(xpath = "(//*[contains(@class,'react-datepicker')])[29]")
+    public WebElement dateilkGun;
+
+    @FindBy(xpath = "//div[@class='react-datepicker__month-read-view']")
     public WebElement selectZamanAy;
 
-    @FindBy(xpath="//select[@class='react-datepicker__year-dropdown-container react-datepicker__year-dropdown-container--scroll']")
+    @FindBy(xpath = "//div[@class='react-datepicker__year-read-view']")
     public WebElement selectZamanYil;
 
 
+    @FindBy(id = "dateAndTimePickerInput")
+    public WebElement zamanSonuc;
 
-    @FindBy(xpath = "//div[contains(@class,'react-datepicker__day') and (not(contains (class,'react-datepicker__day--weekend')))]")
-    public List<WebElement> days;
 
-public static String gunusecme(int a){
-    String sonuc=Driver.getDriver().findElement(By.xpath("(//*[contains(@class,'react-datepicker')])["+a+"]")).getText();
-    return sonuc;
-}
+    @FindBy(xpath = "//li[contains(@class,'react-datepicker__time-list-item ') and text()='10:15']")
+    public WebElement saat;
+
+    @FindBy(xpath = "(//div[@class='react-datepicker__year-option'])[12]")
+    public WebElement yilGeriAlma;
+
+    public WebElement getSaat(String saat) {
+
+        return Driver.getDriver().findElement(By.xpath("//li[contains(@class,'react-datepicker__time-list-item ') and text()='" + saat + "']"));
+    }
+
+
+    public WebElement getYear(String year) {
+
+        return Driver.getDriver().findElement(By.xpath("//div[contains(@class,'react-datepicker__year-option') and text()='" + year + "']"));
+    }
+
+
+    public WebElement getMonth(int month) {
+
+        return Driver.getDriver().findElement(By.xpath("(//div[contains(@class,'react-datepicker__month-option')])[" + month + "]"));
+    }
+
+
+    public WebElement getGun(int day) {
+
+        return Driver.getDriver().findElement(By.xpath("(//*[contains(@class,'react-datepicker__day react-datepicker__day')])[" + (day) + "]"));
+    }
+
+
+
+
+
+
+
 }
