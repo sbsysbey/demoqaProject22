@@ -8,9 +8,9 @@ import utilities.Driver;
 
 import java.util.List;
 
-public class US_14_dataPicker_maplePage {
+public class US14_dataPicker_maplePage {
 
-    public US_14_dataPicker_maplePage() {
+    public US14_dataPicker_maplePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

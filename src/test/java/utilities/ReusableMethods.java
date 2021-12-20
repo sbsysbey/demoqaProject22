@@ -69,6 +69,15 @@ public class ReusableMethods {
         }
         return elemTexts;
     }
+
+
+    public static String jsGetInnerText(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        String innerText = js.executeScript("return arguments[0].textContent;"
+                , new WebDriverWait(Driver.getDriver(), 15)
+                        .until(ExpectedConditions.visibilityOf(element))).toString();
+        return innerText;
+    }
     //===============Explicit Wait==============//
     public static void waitFor(int sec) {
         try {

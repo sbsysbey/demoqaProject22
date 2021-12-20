@@ -8,8 +8,8 @@ import utilities.Driver;
 
 import java.util.List;
 
-public class US_15_Widgets_DataPickerPage {
-    public US_15_Widgets_DataPickerPage() {
+public class US15_Widgets_DataPickerPage {
+    public US15_Widgets_DataPickerPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

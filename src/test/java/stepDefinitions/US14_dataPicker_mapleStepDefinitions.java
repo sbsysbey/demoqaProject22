@@ -1,40 +1,42 @@
 package stepDefinitions;
 
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import pages.US_14_dataPicker_maplePage;
-import pages.US_15_Widgets_DataPickerPage;
+import pages.US14_dataPicker_maplePage;
+import pages.US15_Widgets_DataPickerPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.Month;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class US_14_dataPicker_mapleStepDefinitions {
-    US_14_dataPicker_maplePage datePicker = new US_14_dataPicker_maplePage();
+public class US14_dataPicker_mapleStepDefinitions {
+    US14_dataPicker_maplePage datePicker = new US14_dataPicker_maplePage();
 
+    @And("kullanici dataPicker sekmesini acar")
+    public void kullaniciWidgetsSekmesiniAcar() {
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(1);
+        datePicker.dataPickerSekmesi.click();
+        actions.sendKeys(Keys.PAGE_UP).perform();
+        ReusableMethods.waitFor(2);
+
+    }
 
     Actions actions = new Actions(Driver.getDriver());
     String expectedYear, expectedDay, expectedMonth;
-    US_15_Widgets_DataPickerPage dataPickers = new US_15_Widgets_DataPickerPage();
+    US15_Widgets_DataPickerPage dataPickers = new US15_Widgets_DataPickerPage();
     JavascriptExecutor jsx = (JavascriptExecutor) Driver.getDriver();
     // Scenario: TC_01
     @Given("Kullanici YIL,AY,GUN secer")
