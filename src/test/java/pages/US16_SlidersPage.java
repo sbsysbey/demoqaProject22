@@ -64,4 +64,39 @@ public class US16_SlidersPage {
 
     @FindBy(css = "#demo-tabpane-use")
     public WebElement useTabText;
+
+
+
+
+    //TABS----
+    @FindBy(xpath = "//span[.='Tabs']")
+    public WebElement tabs;
+    @FindBy(id = "demo-tab-what")
+    public WebElement whatTab;
+    @FindBy(css= "#demo-tabpane-what")
+    public WebElement whatText;
+    @FindBy(css = "#demo-tabpane-origin")
+    public WebElement originText;
+    @FindBy(css = "#demo-tabpane-use")
+    public WebElement useText;
+    @FindBy(id = "demo-tab-origin")
+    public WebElement originTab;
+    @FindBy(id = "demo-tab-use")
+    public WebElement useTab;
+    @FindBy(id = "demo-tab-more")
+    public WebElement moreTab;
+
+
+
+
+        ///// TOOL
+        @FindBy(xpath = "//span[.='Tool Tips']")
+        public WebElement toolTips;
+
+    @FindBy(id = "toolTipButton")
+    public WebElement hoverButton;
+
+    @FindBy(css = ".tooltip-inner")
+    public WebElement gorunurText;
+
 }

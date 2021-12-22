@@ -23,3 +23,13 @@ Feature: US_16_sliders
     Then Kullanici veri islemi bittiginde cizginin yesile donmesi ve %100 yazisi reset yazisinin oldugunu dogrular
 
     Then Kullanici reset butonuna bastiginda tekrar basladigini dogrular
+
+  Scenario: TC_03_Tabs
+    And Kullanici Tabs butonunu tiklar
+    Then  Kullanici What Textbox in mavi renkte oldugunu ve click yapildiginda gri renk oldugunu dogrular
+    Then Kullanici  whatText icerdigini dogrular
+    Then  Kullanici Origin Textbox in mavi renkte oldugunu ve click yapildiginda gri renk oldugunu dogrular
+    Then Kullanici  originText  icerdigini dogrular
+    Then  Kullanici Use Textbox in mavi renkte oldugunu ve click yapildiginda gri renk oldugunu dogrular
+    Then Kullanici  useText  icerdigini dogrular
+    Then Kullanici More tabina basilamadigini dogrular
