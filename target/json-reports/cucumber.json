@@ -1,9 +1,9 @@
 [
   {
-    "line": 1,
+    "line": 2,
     "elements": [
       {
-        "line": 3,
+        "line": 5,
         "name": "",
         "description": "",
         "type": "background",
@@ -11,10 +11,10 @@
         "steps": [
           {
             "result": {
-              "duration": 7118403600,
+              "duration": 6027778500,
               "status": "passed"
             },
-            "line": 4,
+            "line": 6,
             "name": "demoqa anasayfaya gidin",
             "match": {
               "location": "stepDefinitions.US01_TextBoxStepDefinitions.demoqa_anasayfaya_gidin()"
@@ -23,112 +23,132 @@
           },
           {
             "result": {
-              "duration": 700599100,
+              "duration": 193891000,
               "status": "passed"
             },
-            "line": 5,
+            "line": 7,
             "name": "kullanici widgets sekmesini acar",
             "match": {
               "location": "stepDefinitions.US12_WidgetsStepDefinitions.kullaniciWidgetsSekmesiniAcar()"
             },
             "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3232408800,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "kullanici dataPicker sekmesini acar",
-            "match": {
-              "location": "stepDefinitions.US_15_Widgets_DataPicker_StepDefinitions.kullaniciWidgetsSekmesiniAcar()"
-            },
-            "keyword": "And "
           }
         ]
       },
       {
-        "start_timestamp": "2021-12-12T10:53:31.627Z",
-        "line": 24,
-        "name": "TC_02",
+        "start_timestamp": "2021-12-23T21:32:10.058Z",
+        "line": 10,
+        "name": "TC_01 Tabs",
         "description": "",
-        "id": "us-14-datapicker-maple;tc-02;;2",
+        "id": "us17-tabs;tc-01-tabs",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 238442600,
+              "duration": 1262626400,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Kullanici Tabs sekmesini tiklar",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTabsSekmesiniTiklar()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1120972600,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Kullanici Whats tab tiklar",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciWhatsTabTiklar()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 234676900,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "kullanici texti dogrular",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTextiDogrular(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "line": 14,
+              "value": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\u0027s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            }
+          },
+          {
+            "result": {
+              "duration": 1117357300,
               "status": "passed"
             },
             "line": 18,
-            "name": "Kullanici takvimi tiklar",
+            "name": "Kullanici Origin Tab tiklar",
             "match": {
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciTakvimiTiklar()"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciOriginTabTiklar()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 4589602200,
+              "duration": 181897700,
               "status": "passed"
             },
             "line": 19,
-            "name": "Kullanici \"1971\",\"03\",\"12\" girer",
+            "name": "kullanici texti dogrular",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"1971\"",
-                  "offset": 10
-                },
-                {
-                  "val": "\"03\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"12\"",
-                  "offset": 22
-                }
-              ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirer(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTextiDogrular(java.lang.String)"
+            },
+            "keyword": "Then ",
+            "doc_string": {
+              "line": 20,
+              "value": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+            }
+          },
+          {
+            "result": {
+              "duration": 2094809000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "Kullanici Use tab tiklar",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciUseTabTiklar()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 54724800,
+              "duration": 89949300,
               "status": "passed"
             },
-            "line": 20,
-            "name": "Kullanici \"1971\",\"03\",\"12\" girdiginin sonucunu dogrular",
+            "line": 25,
+            "name": "kullanici texti dogrular",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"1971\"",
-                  "offset": 10
-                },
-                {
-                  "val": "\"03\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"12\"",
-                  "offset": 22
-                }
-              ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirdigininSonucunuDogrular(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTextiDogrular(java.lang.String)"
             },
-            "keyword": "And "
+            "keyword": "Then ",
+            "doc_string": {
+              "line": 26,
+              "value": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
           }
         ],
         "tags": [
           {
-            "name": "@dene"
+            "name": "@tabs"
           }
         ]
       },
       {
-        "line": 3,
+        "line": 5,
         "name": "",
         "description": "",
         "type": "background",
@@ -136,10 +156,10 @@
         "steps": [
           {
             "result": {
-              "duration": 807465200,
+              "duration": 879501300,
               "status": "passed"
             },
-            "line": 4,
+            "line": 6,
             "name": "demoqa anasayfaya gidin",
             "match": {
               "location": "stepDefinitions.US01_TextBoxStepDefinitions.demoqa_anasayfaya_gidin()"
@@ -148,112 +168,114 @@
           },
           {
             "result": {
-              "duration": 554678200,
+              "duration": 737571700,
               "status": "passed"
             },
-            "line": 5,
+            "line": 7,
             "name": "kullanici widgets sekmesini acar",
             "match": {
               "location": "stepDefinitions.US12_WidgetsStepDefinitions.kullaniciWidgetsSekmesiniAcar()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3169844900,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "kullanici dataPicker sekmesini acar",
-            "match": {
-              "location": "stepDefinitions.US_15_Widgets_DataPicker_StepDefinitions.kullaniciWidgetsSekmesiniAcar()"
             },
             "keyword": "And "
           }
         ]
       },
       {
-        "start_timestamp": "2021-12-12T10:53:47.790Z",
-        "line": 25,
-        "name": "TC_02",
+        "start_timestamp": "2021-12-23T21:32:22.655Z",
+        "line": 30,
+        "name": "TC02_Hover Tool Tips Button",
         "description": "",
-        "id": "us-14-datapicker-maple;tc-02;;3",
+        "id": "us17-tabs;tc02-hover-tool-tips-button",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 188419400,
+              "duration": 2475584000,
               "status": "passed"
             },
-            "line": 18,
-            "name": "Kullanici takvimi tiklar",
+            "line": 32,
+            "name": "KullaniciTool Tips sekmesini tiklar",
             "match": {
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciTakvimiTiklar()"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullanicitoolTipsSekmesiniTiklar()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 8817935100,
+              "duration": 3229996400,
               "status": "passed"
             },
-            "line": 19,
-            "name": "Kullanici \"2000\",\"12\",\"31\" girer",
+            "line": 33,
+            "name": "Kullanici fareyi butonun uzerine getirir",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"2000\"",
-                  "offset": 10
-                },
-                {
-                  "val": "\"12\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"31\"",
-                  "offset": 22
-                }
-              ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirer(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciFareyiButonunUzerineGetirir()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 46827400,
+              "duration": 998900,
               "status": "passed"
             },
-            "line": 20,
-            "name": "Kullanici \"2000\",\"12\",\"31\" girdiginin sonucunu dogrular",
+            "line": 34,
+            "name": "Kullanici rengin degistigini dogrular",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciRenginDegistiginiDogrular()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3120018300,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "Kullanici \"Button\" textinin gorundugunu dogrular",
             "match": {
               "arguments": [
                 {
-                  "val": "\"2000\"",
+                  "val": "\"Button\"",
                   "offset": 10
-                },
-                {
-                  "val": "\"12\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"31\"",
-                  "offset": 22
                 }
               ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirdigininSonucunuDogrular(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTextininGorundugunuDogrular(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2183047000,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "Kullanici hover butonunu tiklar",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciHoverButonunuTiklar()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 996600,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "kullanici rengi dogrular",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciRengiDogrular()"
             },
             "keyword": "And "
           }
         ],
         "tags": [
           {
-            "name": "@dene"
+            "name": "@tabs"
           }
         ]
       },
       {
-        "line": 3,
+        "line": 5,
         "name": "",
         "description": "",
         "type": "background",
@@ -261,10 +283,10 @@
         "steps": [
           {
             "result": {
-              "duration": 392843800,
+              "duration": 449449600,
               "status": "passed"
             },
-            "line": 4,
+            "line": 6,
             "name": "demoqa anasayfaya gidin",
             "match": {
               "location": "stepDefinitions.US01_TextBoxStepDefinitions.demoqa_anasayfaya_gidin()"
@@ -273,112 +295,101 @@
           },
           {
             "result": {
-              "duration": 292832000,
+              "duration": 372786400,
               "status": "passed"
             },
-            "line": 5,
+            "line": 7,
             "name": "kullanici widgets sekmesini acar",
             "match": {
               "location": "stepDefinitions.US12_WidgetsStepDefinitions.kullaniciWidgetsSekmesiniAcar()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3141724100,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "kullanici dataPicker sekmesini acar",
-            "match": {
-              "location": "stepDefinitions.US_15_Widgets_DataPicker_StepDefinitions.kullaniciWidgetsSekmesiniAcar()"
             },
             "keyword": "And "
           }
         ]
       },
       {
-        "start_timestamp": "2021-12-12T10:54:01.425Z",
-        "line": 26,
-        "name": "TC_02",
+        "start_timestamp": "2021-12-23T21:32:35.365Z",
+        "line": 39,
+        "name": "TC03_Hover Tool Tips text",
         "description": "",
-        "id": "us-14-datapicker-maple;tc-02;;4",
+        "id": "us17-tabs;tc03-hover-tool-tips-text",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 162846300,
+              "duration": 2328339300,
               "status": "passed"
             },
-            "line": 18,
-            "name": "Kullanici takvimi tiklar",
+            "line": 41,
+            "name": "KullaniciTool Tips sekmesini tiklar",
             "match": {
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciTakvimiTiklar()"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullanicitoolTipsSekmesiniTiklar()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 8717887600,
+              "duration": 3210341600,
               "status": "passed"
             },
-            "line": 19,
-            "name": "Kullanici \"1999\",\"01\",\"01\" girer",
+            "line": 42,
+            "name": "Kullanici fareyi textboxin uzerine getirir",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"1999\"",
-                  "offset": 10
-                },
-                {
-                  "val": "\"01\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"01\"",
-                  "offset": 22
-                }
-              ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirer(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciFareyiTextboxinUzerineGetirir()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 82456800,
+              "duration": 3089590000,
               "status": "passed"
             },
-            "line": 20,
-            "name": "Kullanici \"1999\",\"01\",\"01\" girdiginin sonucunu dogrular",
+            "line": 43,
+            "name": "Kullanici \"text field\" textinin gorundugunu dogrular",
             "match": {
               "arguments": [
                 {
-                  "val": "\"1999\"",
+                  "val": "\"text field\"",
                   "offset": 10
-                },
-                {
-                  "val": "\"01\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"01\"",
-                  "offset": 22
                 }
               ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirdigininSonucunuDogrular(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTextininGorundugunuDogrular(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2231424500,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "Kullanici  textboxa tiklar",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTextboxaTiklar()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "kullanici rengi dogrular",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciRengiDogrular()"
             },
             "keyword": "And "
           }
         ],
         "tags": [
           {
-            "name": "@dene"
+            "name": "@tabs"
           }
         ]
       },
       {
-        "line": 3,
+        "line": 5,
         "name": "",
         "description": "",
         "type": "background",
@@ -386,10 +397,10 @@
         "steps": [
           {
             "result": {
-              "duration": 411817000,
+              "duration": 602654000,
               "status": "passed"
             },
-            "line": 4,
+            "line": 6,
             "name": "demoqa anasayfaya gidin",
             "match": {
               "location": "stepDefinitions.US01_TextBoxStepDefinitions.demoqa_anasayfaya_gidin()"
@@ -398,112 +409,89 @@
           },
           {
             "result": {
-              "duration": 389777300,
+              "duration": 708592800,
               "status": "passed"
             },
-            "line": 5,
+            "line": 7,
             "name": "kullanici widgets sekmesini acar",
             "match": {
               "location": "stepDefinitions.US12_WidgetsStepDefinitions.kullaniciWidgetsSekmesiniAcar()"
             },
             "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3199229700,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "kullanici dataPicker sekmesini acar",
-            "match": {
-              "location": "stepDefinitions.US_15_Widgets_DataPicker_StepDefinitions.kullaniciWidgetsSekmesiniAcar()"
-            },
-            "keyword": "And "
           }
         ]
       },
       {
-        "start_timestamp": "2021-12-12T10:54:14.252Z",
-        "line": 27,
-        "name": "TC_02",
+        "start_timestamp": "2021-12-23T21:32:47.086Z",
+        "line": 48,
+        "name": "TC04_Hover Tool Tips Contrary",
         "description": "",
-        "id": "us-14-datapicker-maple;tc-02;;5",
+        "id": "us17-tabs;tc04-hover-tool-tips-contrary",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 190632700,
+              "duration": 2281019300,
               "status": "passed"
             },
-            "line": 18,
-            "name": "Kullanici takvimi tiklar",
+            "line": 50,
+            "name": "KullaniciTool Tips sekmesini tiklar",
             "match": {
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciTakvimiTiklar()"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullanicitoolTipsSekmesiniTiklar()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 6673426600,
+              "duration": 209997200,
               "status": "passed"
             },
-            "line": 19,
-            "name": "Kullanici \"2100\",\"12\",\"12\" girer",
+            "line": 51,
+            "name": "Kullanici fareyi textin uzerine getirir",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"2100\"",
-                  "offset": 10
-                },
-                {
-                  "val": "\"12\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"12\"",
-                  "offset": 22
-                }
-              ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirer(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciFareyiTextinUzerineGetirir()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 63801900,
               "status": "passed"
             },
-            "line": 20,
-            "name": "Kullanici \"2100\",\"12\",\"12\" girdiginin sonucunu dogrular",
+            "line": 52,
+            "name": "Kullanici rengin degistigini dogrular",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciRenginDegistiginiDogrular()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3051704700,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "Kullanici \"Contrary\" textinin gorundugunu dogrular",
             "match": {
               "arguments": [
                 {
-                  "val": "\"2100\"",
+                  "val": "\"Contrary\"",
                   "offset": 10
-                },
-                {
-                  "val": "\"12\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"12\"",
-                  "offset": 22
                 }
               ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirdigininSonucunuDogrular(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTextininGorundugunuDogrular(java.lang.String)"
             },
-            "keyword": "And "
+            "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@dene"
+            "name": "@tabs"
           }
         ]
       },
       {
-        "line": 3,
+        "line": 5,
         "name": "",
         "description": "",
         "type": "background",
@@ -511,10 +499,10 @@
         "steps": [
           {
             "result": {
-              "duration": 427990800,
+              "duration": 418776300,
               "status": "passed"
             },
-            "line": 4,
+            "line": 6,
             "name": "demoqa anasayfaya gidin",
             "match": {
               "location": "stepDefinitions.US01_TextBoxStepDefinitions.demoqa_anasayfaya_gidin()"
@@ -523,116 +511,102 @@
           },
           {
             "result": {
-              "duration": 320816300,
+              "duration": 372785500,
               "status": "passed"
             },
-            "line": 5,
+            "line": 7,
             "name": "kullanici widgets sekmesini acar",
             "match": {
               "location": "stepDefinitions.US12_WidgetsStepDefinitions.kullaniciWidgetsSekmesiniAcar()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3173116200,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "kullanici dataPicker sekmesini acar",
-            "match": {
-              "location": "stepDefinitions.US_15_Widgets_DataPicker_StepDefinitions.kullaniciWidgetsSekmesiniAcar()"
             },
             "keyword": "And "
           }
         ]
       },
       {
-        "start_timestamp": "2021-12-12T10:54:25.215Z",
-        "line": 28,
-        "name": "TC_02",
+        "start_timestamp": "2021-12-23T21:32:53.977Z",
+        "line": 55,
+        "name": "TC04_Hover Tool Tips Contrary",
         "description": "",
-        "id": "us-14-datapicker-maple;tc-02;;6",
+        "id": "us17-tabs;tc04-hover-tool-tips-contrary",
         "type": "scenario",
-        "keyword": "Scenario Outline",
+        "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 181794600,
+              "duration": 2160920900,
               "status": "passed"
             },
-            "line": 18,
-            "name": "Kullanici takvimi tiklar",
+            "line": 57,
+            "name": "KullaniciTool Tips sekmesini tiklar",
             "match": {
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciTakvimiTiklar()"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullanicitoolTipsSekmesiniTiklar()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 4501048900,
+              "duration": 199149700,
               "status": "passed"
             },
-            "line": 19,
-            "name": "Kullanici \"1999\",\"02\",\"28\" girer",
+            "line": 58,
+            "name": "Kullanici fareyi textin uzerine getirir",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"1999\"",
-                  "offset": 10
-                },
-                {
-                  "val": "\"02\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"28\"",
-                  "offset": 22
-                }
-              ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirer(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciFareyiTextinUzerineGetirir()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 46808900,
               "status": "passed"
             },
-            "line": 20,
-            "name": "Kullanici \"1999\",\"02\",\"28\" girdiginin sonucunu dogrular",
+            "line": 59,
+            "name": "Kullanici rengin degistigini dogrular",
+            "match": {
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciRenginDegistiginiDogrular()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 3082374900,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "Kullanici \"Contrary\" textinin gorundugunu dogrular",
             "match": {
               "arguments": [
                 {
-                  "val": "\"1999\"",
+                  "val": "\"Contrary\"",
                   "offset": 10
-                },
-                {
-                  "val": "\"02\"",
-                  "offset": 17
-                },
-                {
-                  "val": "\"28\"",
-                  "offset": 22
                 }
               ],
-              "location": "stepDefinitions.US_14_dataPicker_mapleStepDefinitions.kullaniciGirdigininSonucunuDogrular(java.lang.String,java.lang.String,java.lang.String)"
+              "location": "stepDefinitions.US17_TabsStepDefinitions.kullaniciTextininGorundugunuDogrular(java.lang.String)"
             },
-            "keyword": "And "
+            "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@dene"
+            "name": "@tabs"
           }
         ]
       }
     ],
-    "name": "US_14_dataPicker_maple",
+    "name": "US17_Tabs",
     "description": "",
-    "id": "us-14-datapicker-maple",
+    "id": "us17-tabs",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/US_14_dataPicker_maple.feature",
-    "tags": []
+    "uri": "file:src/test/resources/features/US17_Tabs.feature",
+    "tags": [
+      {
+        "name": "@tabs",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
   }
 ]

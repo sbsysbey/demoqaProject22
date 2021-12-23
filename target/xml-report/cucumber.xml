@@ -1,48 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="5" time="62.835">
-    <testcase classname="US_14_dataPicker_maple" name="TC_02" time="16.015">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="5" time="50.985">
+    <testcase classname="US17_Tabs" name="TC_01 Tabs" time="12.437">
         <system-out><![CDATA[Given demoqa anasayfaya gidin...............................................passed
 And kullanici widgets sekmesini acar........................................passed
-And kullanici dataPicker sekmesini acar.....................................passed
-And Kullanici takvimi tiklar................................................passed
-And Kullanici "1971","03","12" girer........................................passed
-And Kullanici "1971","03","12" girdiginin sonucunu dogrular.................passed
+Given Kullanici Tabs sekmesini tiklar.......................................passed
+And Kullanici Whats tab tiklar..............................................passed
+Then kullanici texti dogrular...............................................passed
+And Kullanici Origin Tab tiklar.............................................passed
+Then kullanici texti dogrular...............................................passed
+And Kullanici Use tab tiklar................................................passed
+Then kullanici texti dogrular...............................................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="US_14_dataPicker_maple" name="TC_02_2" time="13.588">
+    <testcase classname="US17_Tabs" name="TC02_Hover Tool Tips Button" time="12.634">
         <system-out><![CDATA[Given demoqa anasayfaya gidin...............................................passed
 And kullanici widgets sekmesini acar........................................passed
-And kullanici dataPicker sekmesini acar.....................................passed
-And Kullanici takvimi tiklar................................................passed
-And Kullanici "2000","12","31" girer........................................passed
-And Kullanici "2000","12","31" girdiginin sonucunu dogrular.................passed
+And KullaniciTool Tips sekmesini tiklar.....................................passed
+And Kullanici fareyi butonun uzerine getirir................................passed
+Then Kullanici rengin degistigini dogrular..................................passed
+Then Kullanici "Button" textinin gorundugunu dogrular.......................passed
+And Kullanici hover butonunu tiklar.........................................passed
+And kullanici rengi dogrular................................................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="US_14_dataPicker_maple" name="TC_02_3" time="12.792">
+    <testcase classname="US17_Tabs" name="TC03_Hover Tool Tips text" time="11.683">
         <system-out><![CDATA[Given demoqa anasayfaya gidin...............................................passed
 And kullanici widgets sekmesini acar........................................passed
-And kullanici dataPicker sekmesini acar.....................................passed
-And Kullanici takvimi tiklar................................................passed
-And Kullanici "1999","01","01" girer........................................passed
-And Kullanici "1999","01","01" girdiginin sonucunu dogrular.................passed
+And KullaniciTool Tips sekmesini tiklar.....................................passed
+And Kullanici fareyi textboxin uzerine getirir..............................passed
+Then Kullanici "text field" textinin gorundugunu dogrular...................passed
+And Kullanici  textboxa tiklar..............................................passed
+And kullanici rengi dogrular................................................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="US_14_dataPicker_maple" name="TC_02_4" time="10.931">
+    <testcase classname="US17_Tabs" name="TC04_Hover Tool Tips Contrary" time="6.857">
         <system-out><![CDATA[Given demoqa anasayfaya gidin...............................................passed
 And kullanici widgets sekmesini acar........................................passed
-And kullanici dataPicker sekmesini acar.....................................passed
-And Kullanici takvimi tiklar................................................passed
-And Kullanici "2100","12","12" girer........................................passed
-And Kullanici "2100","12","12" girdiginin sonucunu dogrular.................passed
+And KullaniciTool Tips sekmesini tiklar.....................................passed
+And Kullanici fareyi textin uzerine getirir.................................passed
+Then Kullanici rengin degistigini dogrular..................................passed
+Then Kullanici "Contrary" textinin gorundugunu dogrular.....................passed
 ]]></system-out>
     </testcase>
-    <testcase classname="US_14_dataPicker_maple" name="TC_02_5" time="8.653">
+    <testcase classname="US17_Tabs" name="TC04_Hover Tool Tips Contrary 2" time="6.237">
         <system-out><![CDATA[Given demoqa anasayfaya gidin...............................................passed
 And kullanici widgets sekmesini acar........................................passed
-And kullanici dataPicker sekmesini acar.....................................passed
-And Kullanici takvimi tiklar................................................passed
-And Kullanici "1999","02","28" girer........................................passed
-And Kullanici "1999","02","28" girdiginin sonucunu dogrular.................passed
+And KullaniciTool Tips sekmesini tiklar.....................................passed
+And Kullanici fareyi textin uzerine getirir.................................passed
+Then Kullanici rengin degistigini dogrular..................................passed
+Then Kullanici "Contrary" textinin gorundugunu dogrular.....................passed
 ]]></system-out>
     </testcase>
 </testsuite>

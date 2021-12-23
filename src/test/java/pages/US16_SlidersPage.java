@@ -99,4 +99,13 @@ public class US16_SlidersPage {
     @FindBy(css = ".tooltip-inner")
     public WebElement gorunurText;
 
+    @FindBy(id = "toolTipTextField")
+    public WebElement hovertextBox;
+
+    @FindBy(xpath = "//a[.='Contrary']")
+    public WebElement hoverContraryText;
+
+    @FindBy(xpath = "//a[.='1.10.32']")
+    public WebElement hoverDegerText;
+
 }
