@@ -52,9 +52,10 @@ It is a long established fact that a reader will be distracted by the readable c
     Then Kullanici rengin degistigini dogrular
     Then Kullanici "Contrary" textinin gorundugunu dogrular
 
-  Scenario:     TC05_Hover Tool Tips Contrary 1.10.32
+  Scenario:     TC05_Hover Tool Tips  Text 1.10.32
 
     And KullaniciTool Tips sekmesini tiklar
     And Kullanici fareyi textin uzerine getirir "deger"
     Then Kullanici rengin degistigini dogrular
     Then Kullanici "1.10.32" textinin gorundugunu dogrular
+
