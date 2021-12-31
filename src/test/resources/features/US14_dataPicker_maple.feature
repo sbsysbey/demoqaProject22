@@ -30,11 +30,11 @@ Feature: US_14_dataPicker_maple
 
   Scenario: TC_03 saatli bolum
     And Kullanici zamanbox i tiklar tiklar
-    And Kullanici zaman bolumune Yil girer "2021"
+    And Kullanici zaman bolumune Yil girer "2011"
     And Kullanici zaman bolumune Ayi girer 12
     And Kullanici zaman bolumune Gunu secer 19
     And Kullanici saati secer "11:45"
-    Then Kullanici dogru zaman oldugunu test eder "2021","12","19","10:45"
+    Then Kullanici dogru zaman oldugunu test eder "2011","12","19","11:45"
 
 
 
