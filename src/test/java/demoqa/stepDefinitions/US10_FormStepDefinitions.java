@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
@@ -146,9 +147,22 @@ public class US10_FormStepDefinitions {
 
     }
 
+    @And("subject autocomplet")
+    public void subjectAutocomplet() {
+
+        ReusableMethods.waitFor(1);
+        List<WebElement> optionslar=Driver.getDriver().findElements(By.xpath("//div[@tabindex='-1']"));
+        for (int i=0;i<optionslar.size();i++)
+        {
+            System.out.println(optionslar.get(i).getText());
+        }
+
+
+
+    }
     @And("subject Giriniz")
     public void subjectGiriniz() {
-        formsPage.subjectsContainer.click();
+
         ReusableMethods.waitFor(1);
 
         formsPage.subjectsContainer.sendKeys("m");
@@ -480,11 +494,13 @@ public class US10_FormStepDefinitions {
         ReusableMethods.waitFor(1);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.waitFor(1);
-        formsPage.state.sendKeys("C");
+        formsPage.state.click();
+
     }
 
     @Then("state isimlerinin gorundugunu dogrulayiniz")
     public void stateIsimlerininGorundugunuDogrulayiniz() {
+        formsPage.state.sendKeys("C");
         actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.TAB).perform();
         System.out.println(formsPage.stateTik.getText());
         Assert.assertTrue(formsPage.stateTik.getText().equals("NCR"));
@@ -515,4 +531,6 @@ public class US10_FormStepDefinitions {
         System.out.println(formsPage.cityTik.getText());
         Assert.assertTrue(formsPage.cityTik.getText().equals("Karnal"));
     }
+
+
 }

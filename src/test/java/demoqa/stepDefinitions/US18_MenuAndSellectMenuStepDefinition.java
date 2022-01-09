@@ -6,14 +6,20 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import demoqa.pages.US18_MenuAndSellectMenuPage;
 import demoqa.utilities.Driver;
 import demoqa.utilities.ReusableMethods;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class US18_MenuAndSellectMenuStepDefinition {
     US18_MenuAndSellectMenuPage menuveSelectM = new US18_MenuAndSellectMenuPage();
@@ -120,31 +126,24 @@ public class US18_MenuAndSellectMenuStepDefinition {
     @And("Kullanici select Option dropdownunu tiklar")
     public void kullaniciSelectOptionDropdownunuTiklar() {
         menuveSelectM.selectOption.click();
-
+ReusableMethods.waitFor(1);
+    }
+    @Then("Kullanici degeri secer ve dogrular degerini secer")
+    public void kullaniciDegeriSecerVeDogrularDegeriniSecer(List<String> kontrolList) {
+        List<String> optionslar=ReusableMethods.getElementsText(By.xpath("//div[@tabindex='-1']"));
+        for (int i=0;i<optionslar.size();i++)
+        {
+            ReusableMethods.waitFor(1);
+            System.out.println("gelen: "+optionslar.get(i)+" listeden: "+kontrolList.get(i));
+           softAssert.assertTrue(optionslar.get(i).equals(kontrolList.get(i)));
+            actions.sendKeys(kontrolList.get(i)).sendKeys(Keys.ENTER).perform();
+            softAssert.assertTrue(kontrolList.contains(menuveSelectM.selectOptionText.getText()));
+            actions.sendKeys(Keys.TAB).click(menuveSelectM.selectOption).perform();
+            softAssert.assertAll();
+        }
     }
 
-        @And("Kullanici {string} degerini secer")
-    public void kullaniciDegeriniSecer(String arg0) {
 
-
-      actions.sendKeys(arg0).sendKeys(Keys.ENTER).perform();
-   // actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-            //   jsx.executeScript("Group 1, option 1",menuveSelectM.selectOption);
-
-            //ReusableMethods.jsClick(menuveSelectM.sellectOption);
-
-             }
-
-    @Then("Kuulanici secimde {string} oldugunu dogrular")
-    public void kuulaniciSecimdeOldugunuDogrular(String arg0) {
-        System.out.println(arg0);
-        System.out.println(menuveSelectM.selectOptionText.getText());
-        Assert.assertTrue(menuveSelectM.selectOptionText.getText().equals(arg0));
-
-
-
-
-   }
 
     @Then("Kullanici {string} inputunun border color mavi oldugunu dogrular")
     public void kullaniciInputununBorderColorMaviOldugunuDogrular(String arg0) {
@@ -199,26 +198,102 @@ Assert.assertTrue(menuveSelectM.selectOption.getCssValue("border-color").equals(
     }
 
     @Then("Kullanici iki tane sub-item ve birtane sub-sub list oldugunu dogrular")
-    public void kullaniciIkiTaneSubItemVeBirtaneSubSubListOldugunuDogrular() {
+    public void kullaniciIkiTaneSubItemVeBirtaneSubSubListOldugunuDogrular(String a) {
 
 
         List<String> subList=ReusableMethods.getElementsText(By.xpath("//ul[@id='nav']//li[2]/ul/li"));
+
         System.out.println(subList);
-        softAssert.assertTrue(subList.size()==3);
+        softAssert.assertTrue(subList.size()==8);
+        softAssert.assertTrue(subList.contains(a));
 
 
     }
+
 
 
 
     @Then("Kullanici sekiz tane linkin oldugunu ve isimlerini dogrular")
-    public void kullaniciSekizTaneLinkinOldugunuVeIsimleriniDogrular(List<String> arg0) {
+    public void kullaniciSekizTaneLinkinOldugunuVeIsimleriniDogrular(String arg0) {
+        System.out.println(arg0);
         List<String> subItemList=ReusableMethods.getElementsText(By.xpath("//ul[@id='nav']//li/a"));
+
+        System.out.println("Toplamda "+subItemList.size()+" link var. İsimleri ise: ");
         System.out.println(subItemList);
         softAssert.assertTrue(subItemList.size()==8);
+
         softAssert.assertTrue(subItemList.contains(arg0));
+        softAssert.assertAll();
+
+
+
+
+
+
+
+
     }
-}
+
+    @And("Kullanici liste  degerini secer")
+    public void kullaniciListeDegeriniSecer() {
+List<WebElement> optionslar=Driver.getDriver().findElements(By.xpath("//div[@tabindex='-1']"));
+        for (int i=0;i<optionslar.size();i++)
+             {
+                 System.out.println(optionslar.get(i).getText());
+             ;
+        }
+    }
+
+
+    @Then("Kullanici degeri secer ve dogrular")
+    public void kullaniciDegeriSecerVeDogrular(List<String> kontrolList) {
+        List<String> optionslar=ReusableMethods.getElementsText(By.xpath("//div[@tabindex='-1']"));
+        for (int i=0;i<optionslar.size();i++)
+        {
+            ReusableMethods.waitFor(1);
+            System.out.println("gelen: "+optionslar.get(i)+" listeden: "+kontrolList.get(i));
+            softAssert.assertTrue(optionslar.get(i).equals(kontrolList.get(i)));
+            actions.sendKeys(kontrolList.get(i)).sendKeys(Keys.ENTER).perform();
+            softAssert.assertTrue(kontrolList.contains(menuveSelectM.selectOptionText.getText()));
+            actions.sendKeys(Keys.TAB).click(menuveSelectM.sellectTitle).perform();
+            softAssert.assertAll();
+        }
+
+
+    }
+
+    @And("Kullanici old Title dropdownunu tiklar")
+    public void kullaniciOldTitleDropdownunuTiklar() {
+        Select oldText1=new Select(menuveSelectM.oldSelectBox);
+        oldText1.selectByIndex(3);
+        System.out.println(menuveSelectM.oldSelectBox.getAttribute("value"));
+    }
+
+    @Then("Kullanici renk degerlerini secer ve dogrular")
+    public void kullaniciRenkDegerleriniSecerVeDogrular(Map<String,String> renkler) {
+
+        System.out.println(renkler);
+
+        for (int i = 0; i < renkler.size() ; i++) {
+            Select oldText=new Select(menuveSelectM.oldSelectBox);
+            oldText.selectByIndex(i);
+        oldText.selectByIndex(i);
+        ReusableMethods.waitFor(1);
+            System.out.print("gelmesi gereken ren: "+renkler.get(menuveSelectM.oldSelectBox.getAttribute("value")));
+        System.out.println("yazılı renk: "+ menuveSelectM.oldSelectBox.getAttribute("value"));
+        if (menuveSelectM.oldSelectBox.getAttribute("value").equals("Red")){
+            softAssert.assertTrue(menuveSelectM.oldSelectBox.getAttribute("value").equals(renkler.get(i)));
+        }else
+       softAssert.assertTrue(menuveSelectM.oldSelectBox.getAttribute("value").equals(renkler.get(i)));
+softAssert.assertAll();
+        }}
+
+
+
+
+
+    }
+
 
 
 

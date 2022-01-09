@@ -42,7 +42,8 @@ public class US18_MenuAndSellectMenuPage {
     @FindBy(xpath = "//ul[@id='nav']/li")
     public List<WebElement> menuItems;
 
-
+    @FindBy(xpath = "//div[@class=' css-2613qy-menu']")
+    public List<WebElement> selectOptionssecenekler;
 
 
     ///////SELECT MENU
@@ -57,11 +58,12 @@ public class US18_MenuAndSellectMenuPage {
     public WebElement selectOptionText;
 
 
-    @FindBy(xpath = "(//div[@class=' css-yk16xz-control'])[2]")
+    @FindBy(xpath = "(//div[@class=' css-1wa3eu0-placeholder'])[2]")
     public WebElement sellectTitle;
 
-    @FindBy(xpath = "(//div[@class=' css-1uccc91-singleValue'])[2]")
+    @FindBy(xpath = "(//div[@class=' css-1uccc91-singleValue")
     public WebElement sellectTitleText;
 
-
+    @FindBy(id = "oldSelectMenu")
+    public WebElement oldSelectBox;
 }

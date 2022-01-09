@@ -59,7 +59,7 @@ Feature: US10_Form
     And valid telefon giriniz "valid"
     And valid dogum tarihi giriniz "valid"
     And subject Giriniz
-    And Hobby seciniz 2
+        And Hobby seciniz 2
     And Resim seciniz
     And Current Adres giriniz
     And State seciniz
@@ -141,6 +141,7 @@ Feature: US10_Form
     And LastName yaziniz  "lastName"
     And cinsiyet seciniz "rastgele"
     And valid telefon giriniz "valid"
+    #And subject autocomplet
     And subject Giriniz
     And Submiti Tiklayin
     And birden fazla giris yapilabildigini dogrulayin
@@ -217,6 +218,7 @@ Feature: US10_Form
 
   Scenario:TC_17_state isimleri tiklama ile gorulmeli
     And state Tiklayiniz
+    And subject autocomplet
     Then state isimlerinin gorundugunu dogrulayiniz
 
   Scenario:TC_18_City isimleri tiklma ile gorulmeli

@@ -65,7 +65,7 @@ public class US10_FormPage {
     @FindBy(id ="currentAddress")
     public WebElement currentAddress;
 
-    @FindBy(id = "react-select-3-input")
+    @FindBy(id = "state")
     public WebElement state;
 
     @FindBy(id = "react-select-4-input")
