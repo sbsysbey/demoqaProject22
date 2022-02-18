@@ -68,6 +68,33 @@ public class us20_BookstoreApplication_SigninPage {
     @FindBy(xpath = "//span[text()='Profile']")
     public WebElement Profile;
 
+    @FindBy(xpath = "//div[@class='action-buttons']")
+    public List<WebElement> allData;
+    @FindBy(xpath = "//span[@class='mr-2']/a")
+    public WebElement bookNameSearchResult;
+    @FindBy(xpath = "(//div[@class='rt-resizable-header-content'])[2]")
+    public List<WebElement> title;
+    @FindBy(xpath = "//div[@class='rt-tr -odd']")
+    public WebElement firstBook;
+    @FindBy(id = "basic-addon2")
+    public WebElement searchButton;
+    @FindBy(xpath = "(//button[@id='addNewRecordButton'])[2]")
+    public WebElement addtoYourCollection;
+    @FindBy(xpath = "//select[@aria-label='rows per page']")
+    public WebElement rowSelectMenu;
+    @FindBy(xpath = "//div[@class='rt-tr-group']")
+    public List <WebElement> allRowsList;
+    @FindBy(xpath = "(//div[@class='rt-td'])[2]")
+    public  WebElement ilkKitapIsmi;
+    @FindBy(xpath = "(//div[@class='rt-td'])[3]")
+    public  WebElement ilkYazarIsmi;
+
+
+    public WebElement getKitap(String kitapIsmi){
+
+        return Driver.getDriver().findElement(By.xpath("//span[contains (@id,'"+kitapIsmi+"')]"));
+    }
+
 
     @FindBy(xpath = "//div[@class='rt-td']")
     public List<WebElement>  filtrelihepsi;
@@ -81,10 +108,7 @@ public class us20_BookstoreApplication_SigninPage {
     @FindBy(xpath = "//div[@class='action-buttons']")
     public List<WebElement> allNameBooks;
 
-    public WebElement getkitap(String kitapismi) {
 
-        return Driver.getDriver().findElement(By.xpath("//span[contains (@id,'"+kitapismi+"')]"));
-    }
 
 
 

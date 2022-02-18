@@ -122,7 +122,7 @@ public class US11_AlertsFrameStepefinitions {
     public void kullaniciYeniBirPencereDeMesajiDogrular() {
 
         List tabs = new ArrayList (Driver.getDriver().getWindowHandles());
-        System.out.println(tabs.get(0));
+        //System.out.println(tabs.get(0));
 
         Driver.getDriver().switchTo().window((String) tabs.get(0));
 

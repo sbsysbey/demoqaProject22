@@ -35,19 +35,25 @@ Feature: Book Store Application Sign-in Feature
 
 
 
-  Scenario:Tc03
+  Scenario:Tc04
       When kullanici valid UserName ve Password bilgilerini girer
       When Kullanici login butonuna tiklar
-      When Kullanici gotoBookStore butonuna tiklar
+     # When Kullanici gotoBookStore butonuna tiklar
       When Kullanici kitabin bilgilerine tiklar "Git Pocket Guide"
-      Then kitabin bilgilerinidogrular
-        | ISBN             | Title
-        | Git Pocket Guide |
-        | Addy Osmani      |
-        | Press            |
-        | Media            |
+    Then kitabin bilgilerinidogrular
+      | Sub Title              | Total Pages | ISBN          | Title            | Author               | Publisher      |
+      | A Working Introduction | 234         | 9781449325862 | Git Pocket Guide | Richard E. Silverman | O'Reilly Media |
 
+
+  Scenario:TC_05
+    When kullanici valid UserName ve Password bilgilerini girer
+    When Kullanici login butonuna tiklar
+    When Kullanici search butonunda kitap "Git Pocket Guide" aratir
+    Then Kullanici "Git Pocket Guide" kitabin bulundugunu dogrular
+    When Kullanici kitabin bilgilerine tiklar
     When Kullanici bilgilere tikladiktan sonra addtoyourcollectiona tiklar
     Then Kullanici profile bilgilerinde "Git Pocket Guide" kitabin eklendigini dogrular
-
-
+    When Kullanici bookstore tablosundaki row sayisini "10" olarak secer
+    Then Kullanici bookstore sayfasindaki row sayisini dogrular "10"
+       # When Kullanici profile butonuna tiklar
+    Then Kullanici kitap adiyla "Git Pocket Guide" yazar adini "Richard E. Silverman" eslestigini dogrular

@@ -9,11 +9,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.checkerframework.checker.units.qual.K;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +41,7 @@ public class us20_BookstoreApplication_SigninStep {
         Faker faker=new Faker();
         bookStore.firstName.sendKeys(faker.name().firstName());
         bookStore.lastName.sendKeys(faker.name().lastName());
-        bookStore.userName.sendKeys(faker.name().username());
+        bookStore.userName.sendKeys(ConfigReader.getProperty("bookStoreUserName"));
         bookStore.password.sendKeys(ConfigReader.getProperty("bookStorePassword"));
     }
 
@@ -157,26 +161,76 @@ ReusableMethods.waitFor(2);
     @When("Kullanici kitabin bilgilerine tiklar {string}")
     public void kullaniciKitabinBilgilerineTiklar(String arg0) {
         ReusableMethods.waitFor(1);
-        bookStore.getkitap(arg0).click();
+        bookStore.getKitap(arg0).click();
+    }
+
+    @When("Kullanici kitabin bilgilerine tiklar")
+    public void kullaniciKitabinBilgilerineTiklar() {
+        bookStore.bookNameSearchResult.click();
+
     }
 
 
     @When("Kullanici bilgilere tikladiktan sonra addtoyourcollectiona tiklar")
     public void kullaniciBilgilereTikladiktanSonraAddtoyourcollectionaTiklar() {
-        List<String> kitapBilgiList=ReusableMethods.getElementsText(bookStore.kitapOzalikleri);
-        System.out.println(kitapBilgiList);
-     Map<String,String> kitapBilgiler = null;
-        for (int i = 0; i <kitapBilgiList.size() ; i++) {
-            kitapBilgiler.put(kitapBilgiList.get(i),kitapBilgiList.get(i+1));
-            i++;
-                 }
-
-        System.out.println(kitapBilgiler);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(1);
+        bookStore.addtoYourCollection.click();
+        //actions.sendKeys(Keys.PAGE_UP).perform();
+        ReusableMethods.waitFor(3);
+        Driver.getDriver().switchTo().alert().accept();
     }
 
     @Then("Kullanici profile bilgilerinde {string} kitabin eklendigini dogrular")
     public void kullaniciProfileBilgilerindeKitabinEklendiginiDogrular(String arg0) {
+        bookStore.Profile.click();
+        Assert.assertTrue(bookStore.getKitap(arg0).isDisplayed());
     }
+
+
+    @When("Kullanici bookstore tablosundaki row sayisini {string} olarak secer")
+    public void kullaniciBookstoreTablosundakiRowSayisiniOlarakSecer(String arg0) {
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        Select options = new Select(bookStore.rowSelectMenu);
+        ReusableMethods.waitFor(1);
+        options.selectByValue(arg0);
+    }
+
+
+    @Then("Kullanici bookstore sayfasindaki row sayisini dogrular {string}")
+    public void kullaniciBookstoreSayfasindakiRowSayisiniDogrular(String arg0) {
+        String rowCount=String.valueOf(bookStore.allRowsList.size());
+
+        System.out.println(rowCount);
+        Assert.assertEquals(rowCount,arg0);
+
+
+    }
+
+
+ /*   @When("Kullanici profile butonuna tiklar")
+    public void kullaniciProfileButonunaTiklar() {
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        bookStore.Profile.click();
+    }*/
+
+    @Then("Kullanici kitap adiyla {string} yazar adini {string} eslestigini dogrular")
+    public void kullaniciKitapAdiylaYazarAdiniEslestiginiDogrular(String arg0, String arg1) {
+        SoftAssert softAssert=new SoftAssert();
+        actions.sendKeys(Keys.PAGE_UP).perform();
+        softAssert.assertTrue(bookStore.ilkKitapIsmi.getText().equals(arg0));
+        softAssert.assertTrue(bookStore.ilkYazarIsmi.getText().equals(arg1));
+
+
+        softAssert.assertAll();
+    }
+
+
+
+
+
+
 
     @And("Kullanici logout yapar")
     public void kullaniciLogoutYapar() {
@@ -184,4 +238,31 @@ ReusableMethods.waitFor(2);
 
 
     }
-}
+
+    @Then("kitabin bilgilerinidogrular")
+    public void kitabinBilgilerinidogrular(List<Map<String,String>> dataTable){
+        List<String> kitapBilgiList=ReusableMethods.getElementsText(bookStore.kitapOzalikleri);
+
+        Map<String,String> kitapBilgiler=new HashMap<>();
+
+        for (int i = 0; i <12; i++) {
+
+            kitapBilgiler.put(kitapBilgiList.get(i).substring(0,kitapBilgiList.get(i).length()-2),kitapBilgiList.get(i+1));
+            i++;
+        }
+
+      for(Map<String, String>map:dataTable){
+          System.out.println("map        : "+map);
+          System.out.println("kitap bilgi: "+kitapBilgiler);
+
+          Assert.assertTrue(map.equals(kitapBilgiler));
+
+
+
+
+       }
+        }}
+
+
+
+
